@@ -46,7 +46,7 @@ git clone -b jwt-api https://github.com/Parentify/Parentify-Cloud-Computing.git
 ```
 
 - **Install module**
-```javascript
-npm install
+```bash
 cd Parentify-Cloud-Computing
+npm install
 ```
