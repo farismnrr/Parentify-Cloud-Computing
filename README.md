@@ -2,7 +2,7 @@
 ---
 
 - **Create new user database**
-```
+```db
 Create new user database:
 SELECT User, Host FROM mysql.user;
 SET PASSWORD FOR 'parentify'@'localhost' = PASSWORD('YOUR_PASSWORD');
