@@ -1,6 +1,6 @@
 # MYSQL FORMAT
 - **Create new user database**
-  `SELECT User, Host FROM mysql.user;`
+`SELECT User, Host FROM mysql.user;`
 - **Set password for 'parentify'@'localhost'**
   `SET PASSWORD FOR 'parentify'@'localhost' = PASSWORD('YOUR_PASSWORD');`
 - **Grant all privileges on 'your_database' to 'parentify'@'localhost'**
