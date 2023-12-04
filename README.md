@@ -43,10 +43,10 @@ sudo apt-get install nodejs -y
 ```bash
 sudo apt install git
 git clone -b jwt-api https://github.com/Parentify/Parentify-Cloud-Computing.git
-cd Parentify-Cloud-Computing
 ```
 
 - **Install module**
 ```javascript
 npm install
+cd Parentify-Cloud-Computing
 ```
