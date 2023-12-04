@@ -21,8 +21,6 @@
     "morgan": "^1.10.0",
     "mysql2": "^3.6.5",
     "nodemon": "^3.0.2",
-    "redis": "^4.6.11",
-    "redis-commander": "^0.4.5",
     "sequelize": "^6.35.1"
   }
 }

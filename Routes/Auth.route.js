@@ -87,14 +87,6 @@ router.post('/refresh-token', async (req, res, next) => {
     }
 });
 
-router.delete('/logout', async (req, res, next) => {
-    try {
-        const { refreshToken } = req.body;
-        if (!refreshToken) throw createError.BadRequest();
-        const userId = await verifyRefreshToken(refreshToken);
-    } catch (error) {
-        next(error);
-    }
-});
+router.delete('/logout', async (req, res, next) => {});
 
 module.exports = router;
