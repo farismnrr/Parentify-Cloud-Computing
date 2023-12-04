@@ -1,0 +1,38 @@
+GET http://localhost:3000
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MzEsImlhdCI6MTcwMTY3MzE0OSwiZXhwIjoxNzAxNjczMTU5LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.eqqTKnVDsfjP7xPIWoh-A48Pp-suYFMh72N5CN81GxIclpLXf_waKJneqgyQRXDN4SojuOWbkXnkIXe8RpN_mub3qtTKWqCqFcl6HkC3vrQhyo2KOsgdh6Aj7ZeJ_R7YVyXWJFnpfYI-y6DjDGWJLOzojqXCIX4PACYEoUJMd38l4zZENldrME9JAKoXn5XwGPifhLhNdEUPEnpkdSy3uuDYvganiKF5sKmcbQpe7fwDWApt--UEd7qe5FLmOtpleEOOvdviU0QKKG1dOkrFZ1GsFBXmq46bT1AgyfvOpf7rZGUd_1Kh9LAvM4XQIvdvF8KG8d4rhk4Sb42m-dN2gA
+
+### Login Route
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "farismrr5",
+    # "email": "test6@gmail.com",
+    "password": "root1231231"
+}
+
+### Register Route
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "farismrr5",
+    "email": "test6@gmail.com",
+    "password": "root1231231"
+}
+
+### Refresh Token Route
+POST http://localhost:3000/auth/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MzEsImlhdCI6MTcwMTY3MjYyOCwiZXhwIjoxNzMzMjMwMjI4LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.bj5tRQIlt0weNHy0tMDQFIMjDisBSGfF8oR0_-S6fcn-yYSml7ggItmvdcawniWUVgGGiI6zRZBKf45TutrXKl2omzEHmRcQ73HGhYBNGeK-ZmM2f8xP0Uc_P1wEpDsd0dNGPtst84wXmWmXJYztBJ_CGbs42rjXu8fGR29bdiH4ALJSXIiwACFlVUTkac5gJTZ4FwBrKdBUY00cS_-oFAef2uerRina5fLdm7a6DQzo2M-54lYqm-SDtc-3JDrjne17AkitQzIkBELB7fp6VCeDWHeIU8_BqhLnJ8xGdiZoCMnutNgodhkQv_SjyzlKaoP1yc0DuHU20ps7a_Rx6Q"
+}
+
+### Logout Route
+DELETE http://localhost:3000/auth/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MzEsImlhdCI6MTcwMTY3NzQyNSwiZXhwIjoxNzMzMjM1MDI1LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.O2ym8lezgM0y-4C4u9Zbb2Lo7Yj5k-HQbsjUSP4nmtd4JqCr2cjK52CIataP_oxhRokpdAXMKArcNnzXlw2MGtHyJNPWlnmhG4wxwkvThZ8r2A1jIYOmiAsHLW0je7ZMPkKIozKxxGwfpxiscJgDrRtUo6IFn_OLgmEkf9Ai65xaFYhy0KeUhcvCzWoPZoQNspG4qDMSSh9QmDfUjgeuk6h9PQ-qXkx3dwkvblNwaP0gTX_KWqIITLbdMI2pXPMiPkGKkIV2I0dibx1zOSU7Dw48FnmKBGGO9OrExZtSKKbQdaYyBCa3eBRBsaoVuS4oaU1I8FBQSoiQXGScEIUmzA"
+}
