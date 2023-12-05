@@ -7,5 +7,5 @@ CREATE TABLE users (
     email TEXT NOT NULL,
     password VARCHAR(255) NOT NULL,
     created TIMESTAMP NOT NULL DEFAULT NOW(),
-    token TEXT CHARACTER NULL
+    token TEXT NULL
 );
