@@ -1,14 +1,14 @@
 GET http://localhost:3000
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MzEsImlhdCI6MTcwMTY3MzE0OSwiZXhwIjoxNzAxNjczMTU5LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.eqqTKnVDsfjP7xPIWoh-A48Pp-suYFMh72N5CN81GxIclpLXf_waKJneqgyQRXDN4SojuOWbkXnkIXe8RpN_mub3qtTKWqCqFcl6HkC3vrQhyo2KOsgdh6Aj7ZeJ_R7YVyXWJFnpfYI-y6DjDGWJLOzojqXCIX4PACYEoUJMd38l4zZENldrME9JAKoXn5XwGPifhLhNdEUPEnpkdSy3uuDYvganiKF5sKmcbQpe7fwDWApt--UEd7qe5FLmOtpleEOOvdviU0QKKG1dOkrFZ1GsFBXmq46bT1AgyfvOpf7rZGUd_1Kh9LAvM4XQIvdvF8KG8d4rhk4Sb42m-dN2gA
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MzMsImlhdCI6MTcwMTcxMTczMSwiZXhwIjoxNzAxNzExNzQxLCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.Cb_LoSPwR9m0Ag3aPLNSVZCzFsPdsJ9q6-lsc3E6eLqHBeNWRNOPi3uEHdRdnJl0q5HHBpAKyOKQ1ngM5G1UHJAfTJ2GUK-yQR6Ade5iDE7VjGhgVpUgbNwv7xLI4Iq_Bc1z-WkO7uNK18bbJeb5e9k-Ms2Zheo-yEdojHeZeNgKvF5mKqCh-j0_ohIsKzntklAPoC_FEsVSaa5U_LgdToMN_EfuY8rJWlH3ZCFJZG3md91TB0cqL2qNeLviWB2ebh6zw_qsDS3v1oeyQFw4KMeSzcO4Zu-5EHKl5t06gG3SqLR02JV8UiBeUH5-UBVuQpCOdW7R2jU36QJL5HBwOQ
 
 ### Login Route
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "username": "farismrr5",
-    # "email": "test6@gmail.com",
-    "password": "root1231231"
+    "username": "farismnrr",
+    # "email": "test@gmail.com",
+    "password": "root1a231231"
 }
 
 ### Register Route
@@ -16,9 +16,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username": "farismrr5",
-    "email": "test6@gmail.com",
-    "password": "root1231231"
+    "username": "farismnrrr",
+    "email": "testr@gmail.com",
+    "password": "root1a231231"
 }
 
 ### Refresh Token Route
@@ -26,7 +26,7 @@ POST http://localhost:3000/auth/refresh-token
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MzEsImlhdCI6MTcwMTY3MjYyOCwiZXhwIjoxNzMzMjMwMjI4LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.bj5tRQIlt0weNHy0tMDQFIMjDisBSGfF8oR0_-S6fcn-yYSml7ggItmvdcawniWUVgGGiI6zRZBKf45TutrXKl2omzEHmRcQ73HGhYBNGeK-ZmM2f8xP0Uc_P1wEpDsd0dNGPtst84wXmWmXJYztBJ_CGbs42rjXu8fGR29bdiH4ALJSXIiwACFlVUTkac5gJTZ4FwBrKdBUY00cS_-oFAef2uerRina5fLdm7a6DQzo2M-54lYqm-SDtc-3JDrjne17AkitQzIkBELB7fp6VCeDWHeIU8_BqhLnJ8xGdiZoCMnutNgodhkQv_SjyzlKaoP1yc0DuHU20ps7a_Rx6Q"
+    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6NDEsImlhdCI6MTcwMTcxOTMxNCwiZXhwIjoxNzMzMjc2OTE0LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.xWq0ygJEKq-dZjFQceyNOTyjygn4fXMy5QV_n-dHiCB5PFUsnGjjnosRGL5pUOuCqV326yiXTHD_IX21vg_eSqdMtD0-yXBgvaXqHiEtXSmOAvnxmzIyhnECj-7ccECboUlzTEi4YbTQtaW-p4MzAiz1zrHROTJl23YajVOJ95-v92ho6u2bYYf2C6i2WxVTebX0vHbRdIqBmwY3WV1CNP6iOcvTkS4uZ82-RgaC6T051Fde2GFWc7QD5gfjJTTumj2fSR5Rri5t4wrAofl6l8QjueOd9ayBg6cC46y6cz52sauZkw4ZKoza85LRUyWZcQvQpJpxqHQH1pVMLYWgZQ"
 }
 
 ### Logout Route
@@ -34,5 +34,5 @@ DELETE http://localhost:3000/auth/logout
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MzEsImlhdCI6MTcwMTY3NzQyNSwiZXhwIjoxNzMzMjM1MDI1LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.O2ym8lezgM0y-4C4u9Zbb2Lo7Yj5k-HQbsjUSP4nmtd4JqCr2cjK52CIataP_oxhRokpdAXMKArcNnzXlw2MGtHyJNPWlnmhG4wxwkvThZ8r2A1jIYOmiAsHLW0je7ZMPkKIozKxxGwfpxiscJgDrRtUo6IFn_OLgmEkf9Ai65xaFYhy0KeUhcvCzWoPZoQNspG4qDMSSh9QmDfUjgeuk6h9PQ-qXkx3dwkvblNwaP0gTX_KWqIITLbdMI2pXPMiPkGKkIV2I0dibx1zOSU7Dw48FnmKBGGO9OrExZtSKKbQdaYyBCa3eBRBsaoVuS4oaU1I8FBQSoiQXGScEIUmzA"
+    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6NDEsImlhdCI6MTcwMTcyMTAzMCwiZXhwIjoxNzMzMjc4NjMwLCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.baRkhX4oNC4huvJe5SjbcnXypZisl7m3MOYg_oMfITCgiCTfzJKXQ7K2qJpEZqHk2wvEdCVo6ooAwiwpLXQjw8D-j1GzAmBvD96uvJU3Gva5dPno9HguMFZZdIMqHrUzOfRUYUJN61xDfyzZy5htjwEyVcjQoxnKPBdrjYqfRySRkwdwicSqhvHRn6yaR-hf-WIHAO_HPks7cwbl-o0tuPMMlXHf3lornCqWx21qgezuSWQTSSqxI9w44OxOZg10ukCrSeLP0qJAyGSMDrynNBijqb2ZcH0AD24kLzg4aoh-8iT2MkfomUpTjyjY4Su_0dxST--tco76ZMyOzIOfzw"
 }

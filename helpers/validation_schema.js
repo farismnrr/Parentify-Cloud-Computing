@@ -12,4 +12,8 @@ const authSchema2 = Joi.object({
     password: Joi.string().min(8).required(),
 });
 
-module.exports = { authSchema, authSchema2 };
+const authSchema3 = Joi.object({
+    refreshToken: Joi.string().required(),
+});
+
+module.exports = { authSchema, authSchema2, authSchema3 };

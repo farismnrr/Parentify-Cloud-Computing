@@ -4,6 +4,8 @@ const createError = require('http-errors');
 const jsonCredentials = require('../credentials');
 const jsonRefreshToken = require('../refresh-token');
 
+const usedRefreshTokens = new Set();
+
 module.exports = {
     signAccessToken: (userId) => {
         return new Promise((resolve, reject) => {
@@ -77,12 +79,22 @@ module.exports = {
 
     verifyRefreshToken: (refreshToken) => {
         return new Promise((resolve, reject) => {
+            if (usedRefreshTokens.has(refreshToken)) {
+                return reject(
+                    createError.Unauthorized(
+                        'Refresh token has already been used.',
+                    ),
+                );
+            }
+
             JWT.verify(
                 refreshToken,
                 jsonRefreshToken.private_key,
                 (err, payload) => {
                     if (err) return reject(createError.Unauthorized());
                     const userId = payload.aud;
+
+                    usedRefreshTokens.add(refreshToken);
 
                     resolve(userId);
                 },

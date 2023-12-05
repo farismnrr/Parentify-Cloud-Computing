@@ -1,11 +1,16 @@
 const express = require('express');
 const createError = require('http-errors');
 // const User = require('../Models/User.model_mongodb');
-const { authSchema, authSchema2 } = require('../helpers/validation_schema');
+const {
+    authSchema,
+    authSchema2,
+    authSchema3,
+} = require('../helpers/validation_schema');
 const {
     getUsers,
     createUser,
     loginUser,
+    logoutUser,
 } = require('../Models/User.model_mysqldb');
 const {
     signAccessToken,
@@ -87,6 +92,26 @@ router.post('/refresh-token', async (req, res, next) => {
     }
 });
 
-router.delete('/logout', async (req, res, next) => {});
+router.delete('/logout', async (req, res, next) => {
+    try {
+        // Ambil refreshToken dari body request
+        const { refreshToken } = req.body;
+
+        // Validasi refreshToken
+        if (!refreshToken) {
+            return res.status(400).json({ error: 'Refresh token is required' });
+        }
+
+        // Lakukan logout user
+        const result = await logoutUser(refreshToken);
+
+        // Respon berhasil logout
+        res.json({ message: 'Logout successful', user: result.user });
+    } catch (error) {
+        // Tangkap error dan respon dengan status code 500
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
 module.exports = router;

@@ -28,6 +28,7 @@ async function createUser(username, email, password) {
     // Sign a JWT token with the user's ID
     const accessToken = await signAccessToken(id);
     const refreshToken = await signRefreshToken(id);
+    await insertToken(id, refreshToken);
 
     return { user: getUser(id), accessToken, refreshToken };
 }
@@ -53,6 +54,7 @@ async function loginUser(identifier, password) {
     // Sign a JWT token with the user's ID
     const accessToken = await signAccessToken(user.id);
     const refreshToken = await signRefreshToken(user.id);
+    await insertToken(user.id, refreshToken);
 
     return {
         user: { id: user.id, username: user.username, email: user.email },
@@ -61,4 +63,30 @@ async function loginUser(identifier, password) {
     };
 }
 
-module.exports = { getUsers, createUser, loginUser };
+async function logoutUser(refreshToken) {
+    const [user] = await connection.query(
+        'SELECT id FROM users WHERE token = ?',
+        [refreshToken],
+    );
+
+    const userId = user[0].id;
+
+    await connection.query('UPDATE users SET token = NULL WHERE id = ?', [
+        userId,
+    ]);
+
+    return { user: getUser(userId) };
+}
+
+async function insertToken(userId, refreshToken) {
+    const [result] = await connection.query(
+        'UPDATE users SET token = ? WHERE id = ?',
+        [refreshToken, userId],
+    );
+
+    const id = result.insertId;
+
+    return { user: getUser(id), refreshToken };
+}
+
+module.exports = { getUsers, createUser, loginUser, logoutUser, insertToken };
