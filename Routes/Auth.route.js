@@ -1,6 +1,5 @@
 const express = require('express');
 const createError = require('http-errors');
-// const User = require('../Models/User.model_mongodb');
 const {
     authSchema,
     authSchema2,
