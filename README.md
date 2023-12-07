@@ -1,3 +1,14 @@
+### Create Credential
+---
+
+- Open Link: https://console.cloud.google.com/iam-admin/serviceaccounts
+- Click your project service account
+- Click keys
+- Click add key -> Create new key (Buat 2 keys)
+- Ubah namanya menjadi credential.json
+- Ubah nama file satunya lagi menjadi refresh-token.json
+- Pindahkan kedua file tersebut kedalam directory yang sama dengan app.js
+
 ### MYSQL
 ---
 
