@@ -1,0 +1,4 @@
+runtime: nodejs20
+service: food-api
+api_verision: 1
+threadsafe: true
