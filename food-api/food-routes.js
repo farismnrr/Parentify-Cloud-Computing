@@ -9,13 +9,13 @@ const routerSayur = require('./router/router-sayur');
 
 const foodRoutes = express.Router();
 
-foodRoutes.use('/biji', routerBiji);
-foodRoutes.use('/buah', routerBuah);
-foodRoutes.use('/bumbu', routerBumbu);
-foodRoutes.use('/daging-protein', routerDagingProtein);
-foodRoutes.use('/kacang', routerKacang);
-foodRoutes.use('/makanan-laut', routerMakananLaut);
-foodRoutes.use('/sayur', routerSayur);
+foodRoutes.use('/foods', routerBiji);
+foodRoutes.use('/foods', routerBuah);
+foodRoutes.use('/foods', routerBumbu);
+foodRoutes.use('/foods', routerDagingProtein);
+foodRoutes.use('/foods', routerKacang);
+foodRoutes.use('/foods', routerMakananLaut);
+foodRoutes.use('/foods', routerSayur);
 
 foodRoutes.use((req, res) => {
     res.status(404).json({
