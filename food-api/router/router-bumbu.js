@@ -2,56 +2,56 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    Jahe,
-    Kunyit,
-    KayuManis,
-    Ketumbar,
-    DaunSalam,
-    DaunJeruk,
-    Oregano,
-    BawangBombay,
-    BawangPutih,
-    BawangMerah,
+    jahe,
+    kunyit,
+    kayuManis,
+    ketumbar,
+    daunSalam,
+    daunJeruk,
+    oregano,
+    bawangBombay,
+    bawangPutih,
+    bawangMerah,
 } = require('../handler/handler-bumbu');
 
 router.get('/jahe', (req, res) => {
-    res.send(Jahe);
+    res.send(jahe);
 });
 
 router.get('/kunyit', (req, res) => {
-    res.send(Kunyit);
+    res.send(kunyit);
 });
 
-router.get('/kayu_manis', (req, res) => {
-    res.send(KayuManis);
+router.get('/kayuManis', (req, res) => {
+    res.send(kayuManis);
 });
 
 router.get('/ketumbar', (req, res) => {
-    res.send(Ketumbar);
+    res.send(ketumbar);
 });
 
-router.get('/daun_salam', (req, res) => {
-    res.send(DaunSalam);
+router.get('/daunSalam', (req, res) => {
+    res.send(daunSalam);
 });
 
-router.get('/daun_jeruk', (req, res) => {
-    res.send(DaunJeruk);
+router.get('/daunJeruk', (req, res) => {
+    res.send(daunJeruk);
 });
 
 router.get('/oregano', (req, res) => {
-    res.send(Oregano);
+    res.send(oregano);
 });
 
-router.get('/bawang_bombay', (req, res) => {
-    res.send(BawangBombay);
+router.get('/bawangBombay', (req, res) => {
+    res.send(bawangBombay);
 });
 
-router.get('/bawang_putih', (req, res) => {
-    res.send(BawangPutih);
+router.get('/bawangPutih', (req, res) => {
+    res.send(bawangPutih);
 });
 
-router.get('/bawang_merah', (req, res) => {
-    res.send(BawangMerah);
+router.get('/bawangMerah', (req, res) => {
+    res.send(bawangMerah);
 });
 
 module.exports = router;
