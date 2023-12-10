@@ -136,7 +136,7 @@ const {
     jamurChampignon,
 } = require('../handler/handler-sayur');
 
-router.get('/all-foods', (req, res) => {
+router.get('/allFoods', (req, res) => {
     const allFoods = {
         biji: {
             berasPutih,
