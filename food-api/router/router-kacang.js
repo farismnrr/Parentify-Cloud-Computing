@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const {
     almond,
     bijiAprikot,
@@ -28,11 +29,11 @@ router.get('/almond', (req, res) => {
     res.send(almond);
 });
 
-router.get('/biji_aprikot', (req, res) => {
+router.get('/bijiAprikot', (req, res) => {
     res.send(bijiAprikot);
 });
 
-router.get('/biji_labu', (req, res) => {
+router.get('/bijiLabu', (req, res) => {
     res.send(bijiLabu);
 });
 
@@ -40,51 +41,51 @@ router.get('/hazelnut', (req, res) => {
     res.send(hazelnut);
 });
 
-router.get('/kacang_tanah', (req, res) => {
+router.get('/kacangTanah', (req, res) => {
     res.send(kacangTanah);
 });
 
-router.get('/kacang_hijau', (req, res) => {
+router.get('/kacangHijau', (req, res) => {
     res.send(kacangHijau);
 });
 
-router.get('/kacang_hitam', (req, res) => {
+router.get('/kacangHitam', (req, res) => {
     res.send(kacangHitam);
 });
 
-router.get('/kacang_kedelai', (req, res) => {
+router.get('/kacangKedelai', (req, res) => {
     res.send(kacangKedelai);
 });
 
-router.get('/kacang_koro', (req, res) => {
+router.get('/kacangKoro', (req, res) => {
     res.send(kacangKoro);
 });
 
-router.get('/kacang_mede', (req, res) => {
+router.get('/kacangMede', (req, res) => {
     res.send(kacangMede);
 });
 
-router.get('/kacang_merah', (req, res) => {
+router.get('/kacangMerah', (req, res) => {
     res.send(kacangMerah);
 });
 
-router.get('/kacang_pecan', (req, res) => {
+router.get('/kacangPecan', (req, res) => {
     res.send(kacangPecan);
 });
 
-router.get('/kacang_pinus', (req, res) => {
+router.get('/kacangPinus', (req, res) => {
     res.send(kacangPinus);
 });
 
-router.get('/kacang_Polong', (req, res) => {
+router.get('/kacangPolong', (req, res) => {
     res.send(kacangPolong);
 });
 
-router.get('/kacang_tunggak', (req, res) => {
+router.get('/kacangTunggak', (req, res) => {
     res.send(kacangTunggak);
 });
 
-router.get('/kacang_kenari', (req, res) => {
+router.get('/kacangKenari', (req, res) => {
     res.send(kacangKenari);
 });
 
