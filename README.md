@@ -23,7 +23,7 @@ sudo mysql
 
 - **Create new user database**
 ```sql
-Create new user database:
+Create new user database;
 SELECT User, Host FROM mysql.user;
 SET PASSWORD FOR 'parentify'@'localhost' = PASSWORD('YOUR_PASSWORD');
 ```
