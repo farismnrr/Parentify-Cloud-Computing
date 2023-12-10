@@ -17,55 +17,55 @@ const {
     buahBit,
 } = require('../handler/handler-buah');
 
-router.get('/Apel', (req, res) => {
+router.get('/apel', (req, res) => {
     res.send(apel);
 });
 
-router.get('/Pisang', (req, res) => {
+router.get('/pisang', (req, res) => {
     res.send(pisang);
 });
 
-router.get('/Alpukat', (req, res) => {
+router.get('/alpukat', (req, res) => {
     res.send(alpukat);
 });
 
-router.get('/Kiwi', (req, res) => {
+router.get('/kiwi', (req, res) => {
     res.send(kiwi);
 });
 
-router.get('/Pepaya', (req, res) => {
+router.get('/pepaya', (req, res) => {
     res.send(pepaya);
 });
 
-router.get('/JambuBiji', (req, res) => {
+router.get('/jambuBiji', (req, res) => {
     res.send(jambuBiji);
 });
 
-router.get('/BuahNaga', (req, res) => {
+router.get('/buahNaga', (req, res) => {
     res.send(buahNaga);
 });
 
-router.get('/Mangga', (req, res) => {
+router.get('/mangga', (req, res) => {
     res.send(mangga);
 });
 
-router.get('/Pir', (req, res) => {
+router.get('/pir', (req, res) => {
     res.send(pir);
 });
 
-router.get('/LabuKuning', (req, res) => {
+router.get('/labuKuning', (req, res) => {
     res.send(labuKuning);
 });
 
-router.get('/Melon', (req, res) => {
+router.get('/melon', (req, res) => {
     res.send(melon);
 });
 
-router.get('/BuahPlum', (req, res) => {
+router.get('/buahPlum', (req, res) => {
     res.send(buahPlum);
 });
 
-router.get('/BuahBit', (req, res) => {
+router.get('/buahBit', (req, res) => {
     res.send(buahBit);
 });
 
