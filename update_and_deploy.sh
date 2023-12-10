@@ -9,6 +9,12 @@ sudo apt update
 # Upgrade installed packages
 sudo apt full-upgrade -y
 
+# Install PM2
+sudo npm install -g pm2
+
+# Optional - Enable Startup Script
+pm2 startup systemd
+
 # Stop the PM2 process
 pm2 stop parentify-api
 
