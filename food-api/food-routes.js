@@ -17,10 +17,20 @@ foodRoutes.use('/foods', routerKacang);
 foodRoutes.use('/foods', routerMakananLaut);
 foodRoutes.use('/foods', routerSayur);
 
-foodRoutes.use((req, res) => {
+// Penanganan kesalahan 404
+foodRoutes.use((req, res, next) => {
     res.status(404).json({
         status: 'error 404',
         message: 'data not found',
+    });
+});
+
+// Penanganan kesalahan umum
+foodRoutes.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({
+        status: 'error 500',
+        message: 'internal server error',
     });
 });
 
