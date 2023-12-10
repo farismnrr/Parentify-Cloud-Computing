@@ -9,23 +9,23 @@ const {
     telur,
 } = require('../handler/handler-daging-protein');
 
-router.get('/daging-sapi', (req, res) => {
+router.get('/daging_sapi', (req, res) => {
     res.send(dagingSapi);
 });
 
-router.get('/daging-kambing', (req, res) => {
+router.get('/daging_kambing', (req, res) => {
     res.send(dagingKambing);
 });
 
-router.get('/daging-ayam', (req, res) => {
+router.get('/daging_ayam', (req, res) => {
     res.send(dagingAyam);
 });
 
-router.get('/daging-bebek', (req, res) => {
+router.get('/daging_bebek', (req, res) => {
     res.send(dagingBebek);
 });
 
-router.get('/daging-domba', (req, res) => {
+router.get('/daging_domba', (req, res) => {
     res.send(dagingDomba);
 });
 
