@@ -31,9 +31,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON your_database.* TO 'parentify'@'localhos
 
 -- Display user information
 SELECT User, Host FROM mysql.user WHERE User = 'parentify';
-
--- Set password for the user
-ALTER USER 'parentify'@'localhost' IDENTIFIED BY 'Parentify-CH2-PS318';
 ```
 
 - **Grand the privilage for the user**
