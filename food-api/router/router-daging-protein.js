@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const {
     dagingSapi,
     dagingKambing,
@@ -9,23 +10,23 @@ const {
     telur,
 } = require('../handler/handler-daging-protein');
 
-router.get('/daging_sapi', (req, res) => {
+router.get('/dagingSapi', (req, res) => {
     res.send(dagingSapi);
 });
 
-router.get('/daging_kambing', (req, res) => {
+router.get('/dagingKambing', (req, res) => {
     res.send(dagingKambing);
 });
 
-router.get('/daging_ayam', (req, res) => {
+router.get('/dagingAyam', (req, res) => {
     res.send(dagingAyam);
 });
 
-router.get('/daging_bebek', (req, res) => {
+router.get('/dagingBebek', (req, res) => {
     res.send(dagingBebek);
 });
 
-router.get('/daging_domba', (req, res) => {
+router.get('/dagingDomba', (req, res) => {
     res.send(dagingDomba);
 });
 
