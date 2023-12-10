@@ -36,7 +36,7 @@ router.get('/selada', (req, res) => {
     res.send(selada);
 });
 
-router.get('/akar-teratai', (req, res) => {
+router.get('/akar_teratai', (req, res) => {
     res.send(akarTeratai);
 });
 
@@ -48,7 +48,7 @@ router.get('/asparagus', (req, res) => {
     res.send(asparagus);
 });
 
-router.get('/daun-bawang', (req, res) => {
+router.get('/daun_bawang', (req, res) => {
     res.send(daunBawang);
 });
 
@@ -60,7 +60,7 @@ router.get('/brokoli', (req, res) => {
     res.send(brokoli);
 });
 
-router.get('/daun-kelor', (req, res) => {
+router.get('/daun_kelor', (req, res) => {
     res.send(daunKelor);
 });
 
@@ -76,7 +76,7 @@ router.get('/wortel', (req, res) => {
     res.send(wortel);
 });
 
-router.get('/kacang-panjang', (req, res) => {
+router.get('/kacang_panjang', (req, res) => {
     res.send(kacangPanjang);
 });
 
@@ -88,15 +88,15 @@ router.get('/kol', (req, res) => {
     res.send(kol);
 });
 
-router.get('/kembang-kol', (req, res) => {
+router.get('/kembang_kol', (req, res) => {
     res.send(kembangKol);
 });
 
-router.get('/labu-putih', (req, res) => {
+router.get('/labu_putih', (req, res) => {
     res.send(labuPutih);
 });
 
-router.get('/labu-siam', (req, res) => {
+router.get('/labu_siam', (req, res) => {
     res.send(labuSiam);
 });
 
@@ -108,7 +108,7 @@ router.get('/paprika', (req, res) => {
     res.send(paprika);
 });
 
-router.get('/sawi-hijau', (req, res) => {
+router.get('/sawi_hijau', (req, res) => {
     res.send(sawiHijau);
 });
 
@@ -132,19 +132,19 @@ router.get('/tomat', (req, res) => {
     res.send(tomat);
 });
 
-router.get('/jamur-tiram', (req, res) => {
+router.get('/jamur_tiram', (req, res) => {
     res.send(jamurTiram);
 });
 
-router.get('/jamur-shiitake', (req, res) => {
+router.get('/jamur_shiitake', (req, res) => {
     res.send(jamurShiitake);
 });
 
-router.get('/jamur-enoki', (req, res) => {
+router.get('/jamur_enoki', (req, res) => {
     res.send(jamurEnoki);
 });
 
-router.get('/jamur-champignon', (req, res) => {
+router.get('/jamur_champignon', (req, res) => {
     res.send(jamurChampignon);
 });
 
