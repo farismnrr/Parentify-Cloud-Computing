@@ -6,6 +6,7 @@ const routerDagingProtein = require('./router/router-daging-protein');
 const routerKacang = require('./router/router-kacang');
 const routerMakananLaut = require('./router/router-makanan-laut');
 const routerSayur = require('./router/router-sayur');
+const routerAll = require('./router/router-all');
 
 const foodRoutes = express.Router();
 
@@ -16,6 +17,7 @@ foodRoutes.use('/foods', routerDagingProtein);
 foodRoutes.use('/foods', routerKacang);
 foodRoutes.use('/foods', routerMakananLaut);
 foodRoutes.use('/foods', routerSayur);
+foodRoutes.use('/foods', routerAll);
 
 // Penanganan kesalahan 404
 foodRoutes.use((req, res, next) => {
