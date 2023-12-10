@@ -37,11 +37,11 @@ router.get('/pepaya', (req, res) => {
     res.send(pepaya);
 });
 
-router.get('/jambu-biji', (req, res) => {
+router.get('/jambu_biji', (req, res) => {
     res.send(jambuBiji);
 });
 
-router.get('/buah-naga', (req, res) => {
+router.get('/buah_naga', (req, res) => {
     res.send(buahNaga);
 });
 
@@ -53,7 +53,7 @@ router.get('/pir', (req, res) => {
     res.send(pir);
 });
 
-router.get('/labu-kuning', (req, res) => {
+router.get('/labu_kuning', (req, res) => {
     res.send(labuKuning);
 });
 
@@ -61,11 +61,11 @@ router.get('/melon', (req, res) => {
     res.send(melon);
 });
 
-router.get('/buah-plum', (req, res) => {
+router.get('/buah_plum', (req, res) => {
     res.send(buahPlum);
 });
 
-router.get('/buah-bit', (req, res) => {
+router.get('/buah_bit', (req, res) => {
     res.send(buahBit);
 });
 
