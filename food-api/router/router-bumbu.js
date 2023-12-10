@@ -22,7 +22,7 @@ router.get('/kunyit', (req, res) => {
     res.send(Kunyit);
 });
 
-router.get('/kayu-manis', (req, res) => {
+router.get('/kayu_manis', (req, res) => {
     res.send(KayuManis);
 });
 
@@ -30,11 +30,11 @@ router.get('/ketumbar', (req, res) => {
     res.send(Ketumbar);
 });
 
-router.get('/daun-salam', (req, res) => {
+router.get('/daun_salam', (req, res) => {
     res.send(DaunSalam);
 });
 
-router.get('/daun-jeruk', (req, res) => {
+router.get('/daun_jeruk', (req, res) => {
     res.send(DaunJeruk);
 });
 
@@ -42,15 +42,15 @@ router.get('/oregano', (req, res) => {
     res.send(Oregano);
 });
 
-router.get('/bawang-bombay', (req, res) => {
+router.get('/bawang_bombay', (req, res) => {
     res.send(BawangBombay);
 });
 
-router.get('/bawang-putih', (req, res) => {
+router.get('/bawang_putih', (req, res) => {
     res.send(BawangPutih);
 });
 
-router.get('/bawang-merah', (req, res) => {
+router.get('/bawang_merah', (req, res) => {
     res.send(BawangMerah);
 });
 
