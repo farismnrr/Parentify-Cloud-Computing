@@ -16,7 +16,7 @@
 sudo apt-get update
 sudo apt-get full-upgrade -y
 sudo apt auto-remove
-sudo apt install mysql-server
+sudo apt install mysql-server -y
 sudo systemctl start mysql.service
 sudo mysql
 ```
