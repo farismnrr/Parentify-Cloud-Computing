@@ -18,6 +18,7 @@ sudo apt-get full-upgrade -y
 sudo apt auto-remove
 sudo apt install mysql-server
 sudo systemctl start mysql.service
+sudo mysql
 ```
 
 - **Create new user database**
