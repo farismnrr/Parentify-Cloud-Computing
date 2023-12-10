@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const {
     selada,
     akarTeratai,
@@ -36,7 +37,7 @@ router.get('/selada', (req, res) => {
     res.send(selada);
 });
 
-router.get('/akar_teratai', (req, res) => {
+router.get('/akarTeratai', (req, res) => {
     res.send(akarTeratai);
 });
 
@@ -48,7 +49,7 @@ router.get('/asparagus', (req, res) => {
     res.send(asparagus);
 });
 
-router.get('/daun_bawang', (req, res) => {
+router.get('/daunBawang', (req, res) => {
     res.send(daunBawang);
 });
 
@@ -60,7 +61,7 @@ router.get('/brokoli', (req, res) => {
     res.send(brokoli);
 });
 
-router.get('/daun_kelor', (req, res) => {
+router.get('/daunKelor', (req, res) => {
     res.send(daunKelor);
 });
 
@@ -76,7 +77,7 @@ router.get('/wortel', (req, res) => {
     res.send(wortel);
 });
 
-router.get('/kacang_panjang', (req, res) => {
+router.get('/kacangPanjang', (req, res) => {
     res.send(kacangPanjang);
 });
 
@@ -88,15 +89,15 @@ router.get('/kol', (req, res) => {
     res.send(kol);
 });
 
-router.get('/kembang_kol', (req, res) => {
+router.get('/kembangKol', (req, res) => {
     res.send(kembangKol);
 });
 
-router.get('/labu_putih', (req, res) => {
+router.get('/labuPutih', (req, res) => {
     res.send(labuPutih);
 });
 
-router.get('/labu_siam', (req, res) => {
+router.get('/labuSiam', (req, res) => {
     res.send(labuSiam);
 });
 
@@ -108,7 +109,7 @@ router.get('/paprika', (req, res) => {
     res.send(paprika);
 });
 
-router.get('/sawi_hijau', (req, res) => {
+router.get('/sawiHijau', (req, res) => {
     res.send(sawiHijau);
 });
 
@@ -132,19 +133,19 @@ router.get('/tomat', (req, res) => {
     res.send(tomat);
 });
 
-router.get('/jamur_tiram', (req, res) => {
+router.get('/jamurTiram', (req, res) => {
     res.send(jamurTiram);
 });
 
-router.get('/jamur_shiitake', (req, res) => {
+router.get('/jamurShiitake', (req, res) => {
     res.send(jamurShiitake);
 });
 
-router.get('/jamur_enoki', (req, res) => {
+router.get('/jamurEnoki', (req, res) => {
     res.send(jamurEnoki);
 });
 
-router.get('/jamur_champignon', (req, res) => {
+router.get('/jamurChampignon', (req, res) => {
     res.send(jamurChampignon);
 });
 
