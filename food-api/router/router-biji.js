@@ -13,19 +13,19 @@ const {
     soba,
 } = require('../handler/handler-biji');
 
-router.get('/beras-putih', (req, res) => {
+router.get('/beras_putih', (req, res) => {
     res.send(berasPutih);
 });
 
-router.get('/beras-merah', (req, res) => {
+router.get('/beras_merah', (req, res) => {
     res.send(berasMerah);
 });
 
-router.get('/beras-hitam', (req, res) => {
+router.get('/beras_hitam', (req, res) => {
     res.send(berasHitam);
 });
 
-router.get('/beras-ketan', (req, res) => {
+router.get('/beras_ketan', (req, res) => {
     res.send(berasKetan);
 });
 
