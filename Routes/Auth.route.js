@@ -1,10 +1,7 @@
 const express = require('express');
 const createError = require('http-errors');
-const {
-    authSchema,
-    authSchema2,
-    authSchema3,
-} = require('../helpers/validation_schema');
+// const User = require('../Models/User.model_mongodb');
+const { authSchema, authSchema2 } = require('../helpers/validation_schema');
 const {
     getUsers,
     createUser,
@@ -18,6 +15,19 @@ const {
 } = require('../helpers/jwt_helper');
 
 const router = express.Router();
+
+const validateAPIKey = (req, res, next) => {
+    const apiKeyFromURL = req.query.api_key; // Get API key from the URL
+    const apiKeyFromCredentials = require('../credentials').private_key_id; // Get API key from credentials
+
+    if (!apiKeyFromURL || apiKeyFromURL !== apiKeyFromCredentials) {
+        return next(createError.Unauthorized('Invalid API key'));
+    }
+
+    next();
+};
+
+router.use(validateAPIKey);
 
 router.post('/register', async (req, res, next) => {
     try {
