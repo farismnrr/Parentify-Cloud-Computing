@@ -9,7 +9,8 @@ sudo apt update
 # Upgrade installed packages
 sudo apt full-upgrade -y
 
-# Install PM2
+# Install PM2 and library
+sudo npm install
 sudo npm install -g pm2
 
 # Optional - Enable Startup Script
