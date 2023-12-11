@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const createError = require('http-errors');
 const AuthRoutes = require('./Routes/Auth.route');
+const foodRoutes = require('./food-api/food-routes');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.get('/', verifyAccessToken, async (req, res, next) => {
 });
 
 app.use('/auth', AuthRoutes);
+app.use('/food', foodRoutes);
 
 app.use(async (req, res, next) => {
     next(createError.NotFound());
