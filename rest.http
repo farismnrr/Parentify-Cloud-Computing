@@ -1,18 +1,18 @@
-GET http://localhost:3000
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MzMsImlhdCI6MTcwMTcxMTczMSwiZXhwIjoxNzAxNzExNzQxLCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.Cb_LoSPwR9m0Ag3aPLNSVZCzFsPdsJ9q6-lsc3E6eLqHBeNWRNOPi3uEHdRdnJl0q5HHBpAKyOKQ1ngM5G1UHJAfTJ2GUK-yQR6Ade5iDE7VjGhgVpUgbNwv7xLI4Iq_Bc1z-WkO7uNK18bbJeb5e9k-Ms2Zheo-yEdojHeZeNgKvF5mKqCh-j0_ohIsKzntklAPoC_FEsVSaa5U_LgdToMN_EfuY8rJWlH3ZCFJZG3md91TB0cqL2qNeLviWB2ebh6zw_qsDS3v1oeyQFw4KMeSzcO4Zu-5EHKl5t06gG3SqLR02JV8UiBeUH5-UBVuQpCOdW7R2jU36QJL5HBwOQ
+GET http://34.67.98.110:3001
+Authorization: Bearer YOUR_TOKEN
 
 ### Login Route
-POST http://localhost:3000/auth/login
+POST http://34.67.98.110:3001/auth/login?api_key=YOUR_API_KEY
 Content-Type: application/json
 
 {
     "username": "farismnrr",
-    # "email": "test@gmail.com",
+    "email": "test@gmail.com",
     "password": "root1a231231"
 }
 
 ### Register Route
-POST http://localhost:3000/auth/register
+POST http://localhost:3001/auth/register?api_key=YOUR_API_KEY
 Content-Type: application/json
 
 {
@@ -22,17 +22,17 @@ Content-Type: application/json
 }
 
 ### Refresh Token Route
-POST http://localhost:3000/auth/refresh-token
+POST http://localhost:3001/auth/refresh-token?api_key=YOUR_API_KEY
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6NDEsImlhdCI6MTcwMTcxOTMxNCwiZXhwIjoxNzMzMjc2OTE0LCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.xWq0ygJEKq-dZjFQceyNOTyjygn4fXMy5QV_n-dHiCB5PFUsnGjjnosRGL5pUOuCqV326yiXTHD_IX21vg_eSqdMtD0-yXBgvaXqHiEtXSmOAvnxmzIyhnECj-7ccECboUlzTEi4YbTQtaW-p4MzAiz1zrHROTJl23YajVOJ95-v92ho6u2bYYf2C6i2WxVTebX0vHbRdIqBmwY3WV1CNP6iOcvTkS4uZ82-RgaC6T051Fde2GFWc7QD5gfjJTTumj2fSR5Rri5t4wrAofl6l8QjueOd9ayBg6cC46y6cz52sauZkw4ZKoza85LRUyWZcQvQpJpxqHQH1pVMLYWgZQ"
+    "refreshToken": "YOUR_REFRESH_TOKEN"
 }
 
 ### Logout Route
-DELETE http://localhost:3000/auth/logout
+DELETE http://localhost:3001/auth/logout?api_key=YOUR_API_KEY
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6NDEsImlhdCI6MTcwMTcyMTAzMCwiZXhwIjoxNzMzMjc4NjMwLCJpc3MiOiJmYXJpc21ucnIubXkuaWQifQ.baRkhX4oNC4huvJe5SjbcnXypZisl7m3MOYg_oMfITCgiCTfzJKXQ7K2qJpEZqHk2wvEdCVo6ooAwiwpLXQjw8D-j1GzAmBvD96uvJU3Gva5dPno9HguMFZZdIMqHrUzOfRUYUJN61xDfyzZy5htjwEyVcjQoxnKPBdrjYqfRySRkwdwicSqhvHRn6yaR-hf-WIHAO_HPks7cwbl-o0tuPMMlXHf3lornCqWx21qgezuSWQTSSqxI9w44OxOZg10ukCrSeLP0qJAyGSMDrynNBijqb2ZcH0AD24kLzg4aoh-8iT2MkfomUpTjyjY4Su_0dxST--tco76ZMyOzIOfzw"
+    "refreshToken": "YOUR_REFRESH_TOKEN"
 }
