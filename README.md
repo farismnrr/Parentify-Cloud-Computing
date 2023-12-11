@@ -39,6 +39,7 @@ FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'parentify'@'localhost';
 GRANT ALL PRIVILEGES ON *.* TO 'parentify'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+exit;
 ```
 - **Start the MySQL service**
 ```bash
