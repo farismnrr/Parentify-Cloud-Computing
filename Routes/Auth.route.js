@@ -16,22 +16,6 @@ const {
 
 const router = express.Router();
 
-const validateAPIKey = (req, res, next) => {
-    const apiKeyFromURL = req.query.api_key;
-    const apiKeyFromCredentials = require('../credentials').private_key_id;
-    const apiKeyFromRefreshToken = require('../refresh-token').private_key_id;
-
-    const combinedAPIKey = apiKeyFromCredentials + apiKeyFromRefreshToken;
-
-    if (!apiKeyFromURL || apiKeyFromURL !== combinedAPIKey) {
-        return next(createError.Unauthorized('Invalid API key'));
-    }
-
-    next();
-};
-
-router.use(validateAPIKey);
-
 router.post('/register', async (req, res, next) => {
     try {
         const { username, email, password } = await authSchema.validateAsync(
