@@ -30,7 +30,11 @@ async function createUser(username, email, password) {
     const refreshToken = await signRefreshToken(id);
     await insertToken(id, refreshToken);
 
-    return { user: getUser(id), accessToken, refreshToken };
+    return {
+        user: { id, username, email }, // Fix here: Destructure from result, not user
+        accessToken,
+        refreshToken,
+    };
 }
 
 async function loginUser(identifier, password) {
@@ -64,18 +68,33 @@ async function loginUser(identifier, password) {
 }
 
 async function logoutUser(refreshToken) {
-    const [user] = await connection.query(
-        'SELECT id FROM users WHERE token = ?',
-        [refreshToken],
-    );
+    try {
+        const [user] = await connection.query(
+            'SELECT id, username, email FROM users WHERE token = ?',
+            [refreshToken],
+        );
 
-    const userId = user[0].id;
+        if (!user || !user.length) {
+            throw createError.NotFound('User not found');
+        }
 
-    await connection.query('UPDATE users SET token = NULL WHERE id = ?', [
-        userId,
-    ]);
+        const userId = user[0].id;
 
-    return { user: getUser(userId) };
+        await connection.query('UPDATE users SET token = NULL WHERE id = ?', [
+            userId,
+        ]);
+
+        return {
+            message: 'Logout successful',
+            user: {
+                id: user[0].id,
+                username: user[0].username,
+                email: user[0].email,
+            },
+        };
+    } catch (error) {
+        throw createError.InternalServerError('Error logging out user');
+    }
 }
 
 async function insertToken(userId, refreshToken) {
