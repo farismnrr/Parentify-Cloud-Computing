@@ -71,10 +71,11 @@ sudo apt install git
 git clone https://github.com/Parentify/Parentify-Cloud-Computing.git
 ```
 
-- **Install module**
+- **Update and Deploy Module**
 ```bash
 cd Parentify-Cloud-Computing
-npm install
+chmod +x update_and_deploy.sh
+./update_and_deploy.sh
 ```
 
 # Food API
