@@ -1,4 +1,4 @@
-### Create Credential Keys
+# Create Credential Keys
 ---
 
 - Open Link: https://console.cloud.google.com/iam-admin/serviceaccounts
@@ -9,8 +9,9 @@
 - Change the name of the other file to refresh-token.json
 - put both files into the same directory as app.js
 
-### MYSQL
+# MYSQL
 ---
+
 - **Install MySQL**
 ```bash
 sudo apt-get update
@@ -50,7 +51,7 @@ YOUR_PASSWORD
 - **See file database.sql to create database and table**
 
 
-### NodeJS
+# NodeJS
 ---
 
 - **Install NodeJS**
@@ -79,60 +80,65 @@ cd Parentify-Cloud-Computing
 npm install
 ```
 
-### Food API
+# Food API
 ---
 
 - **API Semua Makanan:** http://34.67.98.110:3001/food/allFoods?api_key=YOUR_API_KEY
 - **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.67.98.110/3001/food/namaMakanan?api_key=YOUR_API_KEY`
 - **Contoh Penggunaan:** http://34.67.98.110/3001/food/berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
 
-### JWT API
+# JWT API
 ---
 
-- **Server Test**
-GET http://34.67.98.110:3001
-Authorization: Bearer YOUR_TOKEN
+## Server Test
+- **Method:** GET
+- **URL:** http://34.67.98.110:3001
+- **Authorization:** Bearer YOUR_TOKEN
 
-- **Login Route**
-POST http://34.67.98.110:3001/auth/login?api_key=YOUR_API_KEY
-Content-Type: application/json
+## Login Route
+- **Method:** POST
+- **URL:** http://34.67.98.110:3001/auth/login?api_key=YOUR_API_KEY
+- **Content-Type:** application/json
 
-```json
-{
-    "username": "farismnrr",
-    "email": "test@gmail.com",
-    "password": "root1a231231"
-}
-```
+    ```json
+    {
+        "username": "farismnrr",
+        "email": "test@gmail.com",
+        "password": "root1a231231"
+    }
+    ```
 
-- **Register Route**
-POST http://34.67.98.110:3001/auth/register?api_key=YOUR_API_KEY
-Content-Type: application/json
+## Register Route
+- **Method:** POST
+- **URL:** http://34.67.98.110:3001/auth/register?api_key=YOUR_API_KEY
+- **Content-Type:** application/json
 
-```json
-{
-    "username": "farismnrrr",
-    "email": "testr@gmail.com",
-    "password": "root1a231231"
-}
-```
+    ```json
+    {
+        "username": "farismnrrr",
+        "email": "testr@gmail.com",
+        "password": "root1a231231"
+    }
+    ```
 
-- **Refresh Token Route**
-POST http://34.67.98.110:3001/auth/refresh-token?api_key=YOUR_API_KEY
-Content-Type: application/json
+## Refresh Token Route
+- **Method:** POST
+- **URL:** http://34.67.98.110:3001/auth/refresh-token?api_key=YOUR_API_KEY
+- **Content-Type:** application/json
 
-```json
-{
-    "refreshToken": "YOUR_REFRESH_TOKEN"
-}
-```
+    ```json
+    {
+        "refreshToken": "YOUR_REFRESH_TOKEN"
+    }
+    ```
 
-- **Logout Route**
-DELETE http://34.67.98.110:3001/auth/logout?api_key=YOUR_API_KEY
-Content-Type: application/json
+## Logout Route
+- **Method:** DELETE
+- **URL:** http://34.67.98.110:3001/auth/logout?api_key=YOUR_API_KEY
+- **Content-Type:** application/json
 
-```json
-{
-    "refreshToken": "YOUR_REFRESH_TOKEN"
-}
-```
+    ```json
+    {
+        "refreshToken": "YOUR_REFRESH_TOKEN"
+    }
+    ```
