@@ -90,12 +90,12 @@ npm install
 # JWT API
 ---
 
-## Server Test
+### Server Test
 - **Method:** GET
 - **URL:** http://34.67.98.110:3001
 - **Authorization:** Bearer YOUR_TOKEN
 
-## Login Route
+### Login Route
 - **Method:** POST
 - **URL:** http://34.67.98.110:3001/auth/login?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
@@ -108,7 +108,7 @@ npm install
     }
     ```
 
-## Register Route
+### Register Route
 - **Method:** POST
 - **URL:** http://34.67.98.110:3001/auth/register?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
@@ -121,7 +121,7 @@ npm install
     }
     ```
 
-## Refresh Token Route
+### Refresh Token Route
 - **Method:** POST
 - **URL:** http://34.67.98.110:3001/auth/refresh-token?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
@@ -132,7 +132,7 @@ npm install
     }
     ```
 
-## Logout Route
+### Logout Route
 - **Method:** DELETE
 - **URL:** http://34.67.98.110:3001/auth/logout?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
