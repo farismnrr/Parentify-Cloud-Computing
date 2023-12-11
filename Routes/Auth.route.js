@@ -17,10 +17,13 @@ const {
 const router = express.Router();
 
 const validateAPIKey = (req, res, next) => {
-    const apiKeyFromURL = req.query.api_key; // Get API key from the URL
-    const apiKeyFromCredentials = require('../credentials').private_key_id; // Get API key from credentials
+    const apiKeyFromURL = req.query.api_key;
+    const apiKeyFromCredentials = require('../credentials').private_key_id;
+    const apiKeyFromRefreshToken = require('../refresh-token').private_key_id;
 
-    if (!apiKeyFromURL || apiKeyFromURL !== apiKeyFromCredentials) {
+    const combinedAPIKey = apiKeyFromCredentials + apiKeyFromRefreshToken;
+
+    if (!apiKeyFromURL || apiKeyFromURL !== combinedAPIKey) {
         return next(createError.Unauthorized('Invalid API key'));
     }
 
