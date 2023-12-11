@@ -9,8 +9,6 @@ const app = express();
 const { verifyAccessToken } = require('./helpers/jwt_helper');
 
 require('dotenv').config();
-// require('./helpers/init_mongodb');
-require('./helpers/init_redis');
 require('./helpers/init_mysqldb');
 
 app.use(morgan('dev'));
