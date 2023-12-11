@@ -47,6 +47,8 @@ sudo service mysql restart
 sudo mysql -u parentify -p 
 YOUR_PASSWORD
 ```
+- **See file database.sql to create database and table**
+
 
 ### NodeJS
 ---
@@ -68,11 +70,69 @@ sudo apt-get install nodejs -y
 - **Install requirements**
 ```bash
 sudo apt install git
-git clone -b jwt-api https://github.com/Parentify/Parentify-Cloud-Computing.git
+git clone https://github.com/Parentify/Parentify-Cloud-Computing.git
 ```
 
 - **Install module**
 ```bash
 cd Parentify-Cloud-Computing
 npm install
+```
+
+### Food API
+---
+
+- **API Semua Makanan:** http://34.67.98.110:3001/food/allFoods?api_key=YOUR_API_KEY
+- **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.67.98.110/3001/food/namaMakanan?api_key=YOUR_API_KEY`
+- **Contoh Penggunaan:** http://34.67.98.110/3001/food/berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
+
+### JWT API
+---
+
+- **Server Test**
+GET http://34.67.98.110:3001
+Authorization: Bearer YOUR_TOKEN
+
+- **Login Route**
+POST http://34.67.98.110:3001/auth/login?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+```json
+{
+    "username": "farismnrr",
+    "email": "test@gmail.com",
+    "password": "root1a231231"
+}
+```
+
+- **Register Route**
+POST http://34.67.98.110:3001/auth/register?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+```json
+{
+    "username": "farismnrrr",
+    "email": "testr@gmail.com",
+    "password": "root1a231231"
+}
+```
+
+- **Refresh Token Route**
+POST http://34.67.98.110:3001/auth/refresh-token?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+```json
+{
+    "refreshToken": "YOUR_REFRESH_TOKEN"
+}
+```
+
+- **Logout Route**
+DELETE http://34.67.98.110:3001/auth/logout?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+```json
+{
+    "refreshToken": "YOUR_REFRESH_TOKEN"
+}
 ```
