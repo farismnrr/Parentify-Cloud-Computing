@@ -1,6 +1,5 @@
 # Create Credential Keys
 ---
-
 - Open Link: https://console.cloud.google.com/iam-admin/serviceaccounts
 - Click your project service account
 - Click the button
@@ -11,7 +10,6 @@
 
 # MYSQL
 ---
-
 - **Install MySQL**
 ```bash
 sudo apt-get update
@@ -53,7 +51,6 @@ YOUR_PASSWORD
 
 # NodeJS
 ---
-
 - **Install NodeJS**
 ```bash
 sudo apt-get update
@@ -82,14 +79,12 @@ npm install
 
 # Food API
 ---
-
 - **API Semua Makanan:** http://34.67.98.110:3001/food/allFoods?api_key=YOUR_API_KEY
 - **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.67.98.110/3001/food/namaMakanan?api_key=YOUR_API_KEY`
 - **Contoh Penggunaan:** http://34.67.98.110/3001/food/berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
 
 # JWT API
 ---
-
 ### Server Test
 - **Method:** GET
 - **URL:** http://34.67.98.110:3001
