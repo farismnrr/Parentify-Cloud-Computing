@@ -9,3 +9,5 @@ CREATE TABLE users (
     created TIMESTAMP NOT NULL DEFAULT NOW(),
     token TEXT NULL
 );
+
+exit;
