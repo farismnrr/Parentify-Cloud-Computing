@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Change Directory
+cd Parentify-Cloud-Computing
+
 # Restart mysql
 sudo service mysql restart
 
