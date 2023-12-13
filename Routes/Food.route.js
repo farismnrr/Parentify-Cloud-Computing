@@ -6,7 +6,7 @@ const {
     getClassification,
     createFood,
     createClassification,
-} = require('../Models/User.model_mysqldb');
+} = require('../Models/Food.model_mysqldb');
 
 const router = express.Router();
 

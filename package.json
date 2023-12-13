@@ -13,7 +13,6 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
@@ -23,7 +22,9 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
     "nodemon": "^3.0.2",
-    "sequelize": "^6.35.1"
+    "sequelize": "^6.35.1",
+    "body-parser": "^1.20.2"
   },
+  
   "description": ""
 }

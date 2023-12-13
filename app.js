@@ -1,23 +1,41 @@
 const express = require('express');
 const morgan = require('morgan');
 const createError = require('http-errors');
+const AuthRoutes = require('./Routes/Auth.route');
 const FoodRoutes = require('./Routes/Food.route');
-const bodyParser = require('body-parser');
 
 const app = express();
+
+const { verifyAccessToken } = require('./helpers/jwt_helper');
 
 require('dotenv').config();
 require('./helpers/init_mysqldb');
 
 app.use(morgan('dev'));
-// app.use(express.json());
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', async (req, res, next) => {
+const validateAPIKey = (req, res, next) => {
+    const apiKeyFromURL = req.query.api_key;
+    const apiKeyFromCredentials = require('./credentials.json').private_key_id;
+    const apiKeyFromRefreshToken =
+        require('./refresh-token.json').private_key_id;
+
+    const combinedAPIKey = apiKeyFromCredentials + apiKeyFromRefreshToken;
+
+    if (!apiKeyFromURL || apiKeyFromURL !== combinedAPIKey) {
+        return next(createError.Unauthorized('Invalid API key'));
+    }
+
+    next();
+};
+
+app.get('/', verifyAccessToken, async (req, res, next) => {
     res.send('Server connected');
 });
 
+app.use(validateAPIKey);
+app.use('/auth', AuthRoutes);
 app.use('/food', FoodRoutes);
 
 app.use(async (req, res, next) => {
