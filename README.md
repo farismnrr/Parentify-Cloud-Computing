@@ -95,6 +95,7 @@ crontab -e
 - Save the crontab by pressing `ctrl + s` and `ctrl + x`
   
 ```bash
+cd ..
 chmod +x update_and_deploy.sh
 ./update_and_deploy.sh
 ```
