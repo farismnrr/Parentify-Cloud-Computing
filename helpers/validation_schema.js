@@ -23,4 +23,8 @@ const authSchema3 = Joi.object({
     texture: Joi.array().items(Joi.string()).required(),
 });
 
-module.exports = { authSchema, authSchema2, authSchema3 };
+const authSchema4 = Joi.object({
+    name: Joi.string().required(),
+});
+
+module.exports = { authSchema, authSchema2, authSchema3, authSchema4 };
