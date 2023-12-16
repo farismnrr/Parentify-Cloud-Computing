@@ -100,8 +100,8 @@ chmod +x update_and_deploy.sh
 # Food API
 ---
 - **API Semua Makanan:** http://34.30.213.144:3001/food/allFoods?api_key=YOUR_API_KEY
-- **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.30.213.144/3001/food/namaMakanan?api_key=YOUR_API_KEY`
-- **Contoh Penggunaan:** http://34.30.213.144/3001/food/berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
+- **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.30.213.144/3001/food/getClasification?food_name=namaMakanan?api_key=YOUR_API_KEY`
+- **Contoh Penggunaan:** http://34.30.213.144/3001/food/getClasification?food_name=berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
 
 # JWT API
 ---
