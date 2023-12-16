@@ -109,9 +109,38 @@ async function createClassification(data) {
     return data;
 }
 
+async function deleteFood(name) {
+    const [result] = await connection.query(
+        'DELETE FROM foods WHERE name = ?',
+        [name],
+    );
+    const id = result.insertId;
+
+    return {
+        foods: { id, name },
+    };
+}
+
+async function deleteClassification(data) {
+    const deleteQuery = 'DELETE FROM classification WHERE name = ?';
+
+    const namesToDelete = Array.isArray(data.name) ? data.name : [data.name];
+
+    const deletedNames = [];
+
+    for (const name of namesToDelete) {
+        await connection.execute(deleteQuery, [name]);
+        deletedNames.push(name);
+    }
+
+    return { deletedNames };
+}
+
 module.exports = {
     getFoods,
     getClassification,
     createFood,
     createClassification,
+    deleteFood,
+    deleteClassification,
 };
