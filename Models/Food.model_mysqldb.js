@@ -19,7 +19,20 @@ async function getFoods() {
             foods.img, foods.name, foods.type, foods.description, foods.nutrition
         LIMIT 0, 25
     `);
-    return rows;
+
+    // Transform the rows into the desired JSON format
+    const formattedFoods = rows.map((row) => ({
+        img: row.img,
+        name: row.name,
+        type: row.type,
+        description: row.description,
+        nutrition: row.nutrition,
+        information: JSON.parse(row.information),
+        status: JSON.parse(row.status),
+        texture: JSON.parse(row.texture),
+    }));
+
+    return formattedFoods;
 }
 
 async function getClassification(foodName) {

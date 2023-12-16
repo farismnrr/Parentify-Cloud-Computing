@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Create log
+echo "$(date): Update dan deploy berhasil" >> "execution_log.txt"
+
 # Change Directory
 cd Parentify-Cloud-Computing
 

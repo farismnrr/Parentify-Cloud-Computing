@@ -1,6 +1,9 @@
 const express = require('express');
 const createError = require('http-errors');
-const { authSchema3, authSchema4 } = require('../helpers/validation_schema');
+const {
+    createFoodSchema,
+    deleteFoodSchema,
+} = require('../helpers/validation_schema');
 const {
     getFoods,
     getClassification,
@@ -15,7 +18,18 @@ const router = express.Router();
 router.get('/allFoods', async (req, res, next) => {
     try {
         const foods = await getFoods();
-        res.status(200).json({ foods });
+
+        // Calculate totalResults
+        const totalResults = foods.length;
+
+        const response = {
+            status: 'Success',
+            message: 'Foods retrieved successfully',
+            totalResults,
+            articles: foods,
+        };
+
+        res.status(200).json(response);
     } catch (error) {
         next(error);
     }
@@ -42,7 +56,7 @@ router.post('/addFood', async (req, res, next) => {
             information,
             status,
             texture,
-        } = await authSchema3.validateAsync(req.body);
+        } = await createFoodSchema.validateAsync(req.body);
         console.log('Received Request Body:', name);
 
         const existingFood = await getFoods();
@@ -76,7 +90,7 @@ router.post('/addFood', async (req, res, next) => {
 
 router.delete('/deleteFood', async (req, res, next) => {
     try {
-        const { name } = await authSchema4.validateAsync(req.body);
+        const name = req.query.food_name;
         console.log('Received Request Body:', name);
 
         const existingFood = await getFoods();

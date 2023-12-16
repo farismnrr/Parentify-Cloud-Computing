@@ -1,18 +1,6 @@
 const Joi = require('@hapi/joi');
 
-const authSchema = Joi.object({
-    username: Joi.string().alphanum().lowercase().required(),
-    email: Joi.string().email().lowercase().required(),
-    password: Joi.string().min(8).required(),
-});
-
-const authSchema2 = Joi.object({
-    username: Joi.string().alphanum().lowercase(),
-    email: Joi.string().email().lowercase(),
-    password: Joi.string().min(8).required(),
-});
-
-const authSchema3 = Joi.object({
+const createFoodSchema = Joi.object({
     img: Joi.string().required(),
     name: Joi.string().required(),
     type: Joi.string().required(),
@@ -23,8 +11,37 @@ const authSchema3 = Joi.object({
     texture: Joi.array().items(Joi.string()).required(),
 });
 
-const authSchema4 = Joi.object({
+const deleteFoodSchema = Joi.object({
     name: Joi.string().required(),
 });
 
-module.exports = { authSchema, authSchema2, authSchema3, authSchema4 };
+const registrationSchema = Joi.object({
+    username: Joi.string().alphanum().min(3).max(30).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).required(),
+});
+
+const loginSchema = Joi.object({
+    email: Joi.string().email().lowercase().optional(),
+    username: Joi.string().alphanum().min(3).max(30).optional(),
+    password: Joi.string().min(6).required(),
+});
+
+const logoutSchema = Joi.object({
+    refreshToken: Joi.string().required(),
+});
+
+const deleteSchema = Joi.object({
+    username: Joi.string().alphanum().min(3).max(30).lowercase(),
+    email: Joi.string().email().lowercase(),
+    password: Joi.string().required().min(6),
+});
+
+module.exports = {
+    createFoodSchema,
+    deleteFoodSchema,
+    registrationSchema,
+    loginSchema,
+    logoutSchema,
+    deleteSchema,
+};
