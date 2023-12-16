@@ -28,3 +28,5 @@ CREATE TABLE IF NOT EXISTS classification (
     status VARCHAR(255),
     texture VARCHAR(255)
 );
+
+exit;
