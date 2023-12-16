@@ -83,6 +83,7 @@ git clone https://github.com/Parentify/Parentify-Cloud-Computing.git
 - See the directory by command `pwd` and save the directory
 - Move the bash file into main directory
 ```bash
+cd Parentify-Cloud-Computing
 sudo mv update_and_deploy.sh ../update_and_deploy.sh
 crontab -e
 ```
