@@ -99,20 +99,20 @@ chmod +x update_and_deploy.sh
 
 # Food API
 ---
-- **API Semua Makanan:** http://34.67.98.110:3001/food/allFoods?api_key=YOUR_API_KEY
-- **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.67.98.110/3001/food/namaMakanan?api_key=YOUR_API_KEY`
-- **Contoh Penggunaan:** http://34.67.98.110/3001/food/berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
+- **API Semua Makanan:** http://34.30.213.144:3001/food/allFoods?api_key=YOUR_API_KEY
+- **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.30.213.144/3001/food/namaMakanan?api_key=YOUR_API_KEY`
+- **Contoh Penggunaan:** http://34.30.213.144/3001/food/berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
 
 # JWT API
 ---
 ### Server Test
 - **Method:** GET
-- **URL:** http://34.67.98.110:3001
+- **URL:** http://34.30.213.144:3001
 - **Authorization:** Bearer YOUR_TOKEN
 
 ### Login Route
 - **Method:** POST
-- **URL:** http://34.67.98.110:3001/auth/login?api_key=YOUR_API_KEY
+- **URL:** http://34.30.213.144:3001/auth/login?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
 
     ```json
@@ -125,7 +125,7 @@ chmod +x update_and_deploy.sh
 
 ### Register Route
 - **Method:** POST
-- **URL:** http://34.67.98.110:3001/auth/register?api_key=YOUR_API_KEY
+- **URL:** http://34.30.213.144:3001/auth/register?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
 
     ```json
@@ -138,7 +138,7 @@ chmod +x update_and_deploy.sh
 
 ### Refresh Token Route
 - **Method:** POST
-- **URL:** http://34.67.98.110:3001/auth/refresh-token?api_key=YOUR_API_KEY
+- **URL:** http://34.30.213.144:3001/auth/refresh-token?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
 
     ```json
@@ -149,7 +149,7 @@ chmod +x update_and_deploy.sh
 
 ### Logout Route
 - **Method:** DELETE
-- **URL:** http://34.67.98.110:3001/auth/logout?api_key=YOUR_API_KEY
+- **URL:** http://34.30.213.144:3001/auth/logout?api_key=YOUR_API_KEY
 - **Content-Type:** application/json
 
     ```json
