@@ -1,11 +1,13 @@
 const express = require('express');
 const createError = require('http-errors');
-const { authSchema3 } = require('../helpers/validation_schema');
+const { authSchema3, authSchema4 } = require('../helpers/validation_schema');
 const {
     getFoods,
     getClassification,
     createFood,
     createClassification,
+    deleteFood,
+    deleteClassification,
 } = require('../Models/Food.model_mysqldb');
 
 const router = express.Router();
@@ -63,6 +65,31 @@ router.post('/addFood', async (req, res, next) => {
             information,
             status,
             texture,
+        });
+
+        res.status(201).send({ foods, classification });
+    } catch (error) {
+        if (error.isJoi === true) error.status = 422;
+        next(error);
+    }
+});
+
+router.delete('/deleteFood', async (req, res, next) => {
+    try {
+        const { name } = await authSchema4.validateAsync(req.body);
+        console.log('Received Request Body:', name);
+
+        const existingFood = await getFoods();
+        const nameExist = existingFood.some((foods) => foods.name === name);
+
+        if (!nameExist) {
+            throw createError.Conflict(`${name} is not registered`);
+        }
+
+        const { foods } = await deleteFood(name);
+
+        const classification = await deleteClassification({
+            name,
         });
 
         res.status(201).send({ foods, classification });
