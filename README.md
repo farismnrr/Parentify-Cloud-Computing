@@ -1,21 +1,15 @@
-# Create Credential Keys
----
-- Open Link: https://console.cloud.google.com/iam-admin/serviceaccounts
-- Click your project service account
-- Click the button
-- Click add key -> Create new key (Create 2 keys)
-- Change the name to credentials.json
-- Change the name of the other file to refresh-token.json
-- put both files into the same directory as app.js
-
 # MYSQL
 ---
-- **Install MySQL**
+- **Update and Install MySQL**
 ```bash
 sudo apt-get update
 sudo apt-get full-upgrade -y
+```
+```bash
 sudo apt auto-remove
 sudo apt install mysql-server -y
+```
+```bash
 sudo systemctl start mysql.service
 sudo mysql
 ```
@@ -41,6 +35,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'parentify'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit;
 ```
+
 - **Start the MySQL service**
 ```bash
 sudo service mysql restart
@@ -72,9 +67,32 @@ sudo apt install git
 git clone https://github.com/Parentify/Parentify-Cloud-Computing.git
 ```
 
-- **Update and Deploy Module**
+# Create Credential Keys
+---
+- Open Link: https://console.cloud.google.com/iam-admin/serviceaccounts
+- Click your project service account
+- Click the button
+- Click add key -> Create new key (Create 2 keys)
+- Change the name to credentials.json
+- Change the name of the other file to refresh-token.json
+- put both files into the same directory as app.js
+
+# Create Automatic Update and Deploy
+---
+- Move the bash into the main directory
+- See the directory by command `pwd` and save the directory
 ```bash
-cd Parentify-Cloud-Computing
+sudo mv update_and_deploy.sh ../update_and_deploy.sh
+crontab -e
+```
+
+- Open crontab to create new log
+```bash
+0 * * * * /bin/bash /home/YOUR_VM_DIRECTORY/update_and_deploy.sh
+```
+- Save the crontab by pressing `ctrl + s` and `ctrl + x`
+  
+```bash
 chmod +x update_and_deploy.sh
 ./update_and_deploy.sh
 ```
