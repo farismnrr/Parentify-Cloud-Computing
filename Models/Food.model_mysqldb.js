@@ -1,4 +1,4 @@
-const connection = require('../helpers/init_mysqldb');
+const connection = require("../helpers/init_mysqldb");
 
 async function getFoods() {
     const [rows] = await connection.query(`
@@ -17,7 +17,6 @@ async function getFoods() {
             classification ON foods.name = classification.name
         GROUP BY
             foods.img, foods.name, foods.type, foods.description, foods.nutrition
-        LIMIT 0, 25
     `);
 
     // Transform the rows into the desired JSON format
@@ -56,14 +55,13 @@ async function getClassification(foodName) {
         WHERE
             foods.name = ?
         GROUP BY
-            foods.img, foods.name, foods.type, foods.description, foods.nutrition
-        LIMIT 0, 25;        
+            foods.img, foods.name, foods.type, foods.description, foods.nutrition       
         `,
-            [foodName],
+            [foodName]
         );
 
         if (rows.length === 0) {
-            throw { status: 404, message: 'Food not found' };
+            throw { status: 404, message: "Food not found" };
         }
 
         return rows;
@@ -74,8 +72,8 @@ async function getClassification(foodName) {
 
 async function createFood(img, name, type, description, nutrition) {
     const [result] = await connection.query(
-        'INSERT INTO foods (img, name, type, description, nutrition) VALUES (?, ?, ?, ?, ?)',
-        [img, name, type, description, nutrition],
+        "INSERT INTO foods (img, name, type, description, nutrition) VALUES (?, ?, ?, ?, ?)",
+        [img, name, type, description, nutrition]
     );
     const id = result.insertId;
 
@@ -93,12 +91,12 @@ async function createFood(img, name, type, description, nutrition) {
 
 async function createClassification(data) {
     const insertQuery =
-        'INSERT INTO classification (name, information, status, texture) VALUES (?, ?, ?, ?)';
+        "INSERT INTO classification (name, information, status, texture) VALUES (?, ?, ?, ?)";
 
     const maxArrayLength = Math.max(
         data.information.length,
         data.status.length,
-        data.texture.length,
+        data.texture.length
     );
 
     for (let i = 0; i < maxArrayLength; i++) {
@@ -124,8 +122,8 @@ async function createClassification(data) {
 
 async function deleteFood(name) {
     const [result] = await connection.query(
-        'DELETE FROM foods WHERE name = ?',
-        [name],
+        "DELETE FROM foods WHERE name = ?",
+        [name]
     );
     const id = result.insertId;
 
@@ -135,7 +133,7 @@ async function deleteFood(name) {
 }
 
 async function deleteClassification(data) {
-    const deleteQuery = 'DELETE FROM classification WHERE name = ?';
+    const deleteQuery = "DELETE FROM classification WHERE name = ?";
 
     const namesToDelete = Array.isArray(data.name) ? data.name : [data.name];
 
