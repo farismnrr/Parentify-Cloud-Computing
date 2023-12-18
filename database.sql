@@ -31,4 +31,16 @@ CREATE TABLE IF NOT EXISTS classification (
     texture VARCHAR(255)
 );
 
+CREATE TABLE articles (
+    articleId INT AUTO_INCREMENT PRIMARY KEY,
+    articleName VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    url VARCHAR(255) NOT NULL,
+    urlToImage VARCHAR(255),
+    publishedAt DATETIME NOT NULL,
+    content TEXT NOT NULL
+);
+
 exit;
