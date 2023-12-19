@@ -1,0 +1,2091 @@
+{
+	"info": {
+		"_postman_id": "238b1a4f-714c-4589-a400-3a778226a082",
+		"name": "Prentify API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30262904"
+	},
+	"item": [
+		{
+			"name": "JWT API",
+			"item": [
+				{
+					"name": "Server Authentication",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{secret-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://{{url}}:{{port}}/"
+					},
+					"response": [
+						{
+							"name": "Server Authentication",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://{{url}}:{{port}}/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "16"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10-AaonMweIxSeFn3xKQofzBTeJYhQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:07:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Server connected"
+						}
+					]
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/allUsers?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"allUsers"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/allUsers?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"allUsers"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1678"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68e-C2lc/yHSVikWtGzJAxWgnlD7Dmo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 17:29:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Users retrieved successfully\",\n    \"totalResults\": 2,\n    \"users\": [\n        {\n            \"id\": 1,\n            \"username\": \"farismnrr\",\n            \"email\": \"farismnrr@gmail.com\",\n            \"password\": \"$2b$10$2nAzBYhCXJ65CC3HAJNZ0u.fLHfGlx7JnAUcJgE7MPO8I5hK4COBK\",\n            \"phoneNumber\": \"+6285215652903\",\n            \"createdAt\": \"2023-12-18T17:16:52.000Z\",\n            \"updatedAt\": \"2023-12-18T17:24:37.000Z\",\n            \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyOTE5ODEyLCJleHAiOjE3MzQ0Nzc0MTIsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.j6KKLaWfCgXFlFks9RhdVdXHvJPnbK3-m-v7ZOQmieLXrfsA5J7e3-0zcG6wGHEKZlxs4tQ3_kQRMjcSmPU3UWNqF2SnrssyEpJIJSChKpnBsYwCXr8Kt5SuyT5PTViIxR3kTzRKkQFkMWVFz9o5CvNMUIzDm5AUNGjALSHI374s3oA94AKSUZ3N6VSAznJz8Z0J3GHmYsuU1dIAYwHuabEoRH3jCjYh3vPlHstdaCCIOw1SVpF4LegbHsS7CQ43DgXhClJ1iJavYmQyFB37l9cdx532-A8Bl8WGu1FGkDJnEnaCpjvvLnPHQl59QXFpSB4EDi26bOO3bzbVCnKpcw\"\n        },\n        {\n            \"id\": 2,\n            \"username\": \"andika\",\n            \"email\": \"andika@gmail.com\",\n            \"password\": \"$2b$10$qpVEA4gegPDbtQ25HKcHDOinfTUS5AgQbUI1E4yakh8uUEKYiEdV6\",\n            \"phoneNumber\": \"+6285215652903\",\n            \"createdAt\": \"2023-12-18T17:29:08.000Z\",\n            \"updatedAt\": \"2023-12-18T17:29:08.000Z\",\n            \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyOTIwNTQ4LCJleHAiOjE3MzQ0NzgxNDgsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.WUga267La3nyjQt2-au5I6hItTr4tqiJYns4ZEQg7WrFMfiOqPUJsw573Z6BKLMgJ2EncqJoWja5kEPoPS_x3SBxXunhL6rMXHslQWlHSyaXeOxhH_N7mKvuHPanxvQHWFpRweCIjPGOe4Wf2R4IXLNR6Pk7tqJsa2-s_1_tJ89LjAi96Io1LYLP3UE86XXyshfy85BwSBFEtOpvJxs-7nH8y-ZXLVB9hHjQSGSN38sDT2glboazyc4FpLrnbuJLX3vm6Eu-hDSdD1AcdX-r2pUyfUbKSk66JYsPvqXS03If_mCUzQvbFU82AOA1rY9uQO2iF6n4Lg579E7F3azvAw\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Register New User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"andika\",\r\n    \"email\": \"andika@gmail.com\",\r\n    \"password\": \"1234567\",\r\n    \"phoneNumber\": \"{{phoneNumber}}\",\r\n    \"otpCode\": \"312228\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/register?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register New User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\",\r\n    \"phoneNumber\": \"{{phoneNumber}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/register?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"register"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1316"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"524-LDD4pEJULkLzGr8kAy4hUK8ooHQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 10:57:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\",\n        \"phoneNumber\": \"+6285215652903\",\n        \"createdAt\": \"2023-12-18T10:57:46.882Z\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyODk3MDY2LCJleHAiOjE3MDI4OTcwNzYsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.UT4CrXgSlXAOJlRzsA2t9Q4DIyUeDRWI7vv1EQ6SRT1OZLupkRtaOX-Vp_co1jDoaqKtgt_FdMTobiJb52cIN1c3Zje-izzMDuo_APW5SHptp6wpHEnqe3DBihP_Kg6UGC0yr2K2WUNHjqE6ZG9moXDjw5LD09TEQ9hGqga8-_jJWmHoiuxMIBR1a4M5eRHGSi8ypEuQdKixX3ebqF4Vx6m1NkVD6_l-9WhkariF_SueXH6o19edc11dOBBqeTETyK6sK4AAnLzYESakiOOp3JzV1Okc51hn3QchPGAYsNuXERLcN0He-8bJYbaAEHMOBTXJbldRw1W17a6YookcZA\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyODk3MDY2LCJleHAiOjE3MzQ0NTQ2NjYsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.AvYvI1x473Ah-wfmFsXC3PSOqJTUjMtesloeeoB1fdKBF0PqAQEHjRSqieMBZC4swPKaZr_ggtKAHBHdfV2NE0b5I3dXK7t8VbWBgLZICd56SP2PC3m3fEF9kdoOfRH1cw2jNbkrf_cVyNv-zv0yyJjG-pYRdMm2hxy3EcroyG-RChLdj0M84DfUZoY1D6hpXrEK95_SDJ2UKxlRz5XDrYqfEe7GiJUOP0PUuo8LJqCLJf21xD_oG2JYC6C7ZaReu5vMwgz9gX0p3USOQUZwgmOs2l38rJXFCXJCV8u1d1cbbTbL1ff-DXIPcIf9PLIjieI5zL19ImjgKY71Pft_9g\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/login?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/login?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"login"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1279"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4ff-HQBszHeJsKOE5gkCXJ+Sr4Z57NU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 10:58:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User logged in successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\",\n        \"phoneNumber\": \"+6285215652903\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyODk3MTMxLCJleHAiOjE3MDI4OTcxNDEsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.Z9lXXLv6YLs8MFGo29brh3_P9B_l7D3l_bHyuEyVwu47x3UKKRcOXeVuXztfuAbSrvX4L2eKxboaAMD4qFBUuAhzgQ3nt0O8owDCYftLdekberdoBJnfuEA432S48aWtPDmwB-_JPkqcLNnIY4WsVqQoQSQNkQsxO9C0adIUerHbOzlW_Ry7DaOSj5XH5ywPMjlVghiD6HZT0KREpe2um9Ug5GZTsLfdWNrQfp0mWN1L6KyFJzSChRMMJyhibpKkwMTtvC9Loy4vxMrzBgnrmp0LVef6jdD3wu6qbS7XwcFImJ4jp3X5NtLcYN6i-G45WnJ-yvZ6IIq_hbgMCmaTeQ\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyODk3MTMxLCJleHAiOjE3MzQ0NTQ3MzEsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.b1yD37XFAlae80buJXssE5HgFkZ2a-kFmu3J8MPB1bq5LukWOTSlRwU8yi5nYDRXNcLygxei5bvldQgbhwF6VLTlJfBOy0FEevZLROxc7y9WvL5sKuxOZUIMhCJHhn7wN7LDS-esEfScBfu4EGDqlykmPhCrgkAMs1ASjFc76NGlIsid2z_Q45qkJF_w-Vo8EVZNlFsxadGzkMDu9yB3Hb14BsVhvpuHeVJoKQeijBP_uohFOSCyzof6q7rl9dea13Nk4x0QRveqLz82BJH7HiE3jaydnA72vN5EgAZSmcXdgvn8EwcumYn4Mio3S4KSrYRSuwTdfpZavrNKHqZOsg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Send OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phoneNumber\": \"{{phoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/send-otp?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"send-otp"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"phoneNumber\": \"{{phoneNumber}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/send-otp?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"send-otp"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6d-WBi9a34+EuBzl9lcBbgV4HAzKII\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 08:44:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"OTP sent successfully\",\n    \"data\": {\n        \"phoneNumber\": \"+6285215652903\",\n        \"countdown\": 60\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phoneNumber\": \"{{phoneNumber}}\",\r\n  \"otpCode\": \"256293\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/verify-otp?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"verify-otp"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Verify OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"phoneNumber\": \"{{phoneNumber}}\",\r\n  \"otpCode\": \"185290\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/verify-otp?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"verify-otp"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8-yVYNlO4ZgwN0Z4qcn5oIM4Acn2I\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 10:39:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "approved"
+						},
+						{
+							"name": "Verify OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"phoneNumber\": \"{{phoneNumber}}\",\r\n  \"otpCode\": \"256293\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/verify-otp?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"verify-otp"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-Bgua6eNf3TD57VzisX1J8NmcLr0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 10:41:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"approved\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refreshToken\": \"{{refresh-token}}\",\r\n  \"newUsername\": \"farismnrrs\",\r\n  \"newEmail\": \"farismnrrs@gmail.com\",\r\n  \"oldPassword\": \"1234567\",\r\n  \"newPassword\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/edit/user?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"edit",
+								"user"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User Data",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refreshToken\": \"{{refresh-token}}\",\r\n  \"newUsername\": \"farismnrrs\",\r\n  \"newEmail\": \"farismnrrs@gmail.com\",\r\n  \"oldPassword\": \"1234567\",\r\n  \"newPassword\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/edit/user?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"edit",
+										"user"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1326"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52e-+2tPBef/m8+bQL2Asa9aTiZ99EM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 15:57:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User updated successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrrs\",\n        \"email\": \"farismnrrs@gmail.com\",\n        \"createdAt\": \"2023-12-18T15:56:29.000Z\",\n        \"updatedAt\": \"2023-12-18T15:57:27.000Z\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyOTE1MDQ3LCJleHAiOjE3MDI5MTUwNTcsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.lh7EMrl7oV8NGudNAz0slpLYwy70ywjphtS-TX5n-fLmyeyTUOn6fdNG3YsjXIXs3-JYSWfrM09KrWQVK4Xc6lSvRnpd-xvjy_2lDbrUoa2YnFlmd2o-RTPC7j_jHVjVmqSpK9TwNh59mwDCrhYbYIPk1SyJFmRZ8cj7HKbkrZvXrUC2vzRXD_5Vn_uOLps9KevRzY_wtSlXVfcmh-3ZXOlurJnWncDFjUC35aXBwV3nkbSvkwpNHETtDbvKILM6mRGFZg3eG7pU7ptG6ZqRHM7W6M6uN7wkem4btwpjdNESP9J84PfINS6cPjVRLjXDGcO3WMZESQTIG_y8UeXt0Q\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyOTE1MDQ3LCJleHAiOjE3MzQ0NzI2NDcsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.iPxcOIs87bi6rux4_kUJUN54zoR8pc3eE2Q7cXB67-8_kyxCouq_DOzZnxbPx5412hkzLY1EVvYXzppRbc0WG0GgYUmsTgHWsVTJbp-IRAiU9soZIc57IXnMlf-39GdjoDjgv7KYp6nzKJNGVNGE6H4pk01bAToA5O1igNBcdp061fC4b6q62xZNBPZOqxtDwY2mlb254KkbSIhTAThG1QezemsFVCzhGBy9rkLc2UmxYVI4v37Qbm2ppMYw_tehXmKFb8Rv8P3tMnKuqtsqpP8FvCRkxYiH1OJNDvzn-ITDVHa4Rar-RGjJ0Z50CQqQ_V5OpgSWSvkd-qzE7PCwDg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"farismnrr\",\r\n  \"newPassword\": \"123456\",\r\n  \"confirmPassword\": \"123456\",\r\n  \"phoneNumber\": \"{{phoneNumber}}\",\r\n  \"otpCode\": \"716662\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/edit/password?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"edit",
+								"password"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User Password",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"farismnrr\",\r\n  \"newPassword\": \"123456\",\r\n  \"confirmPassword\": \"123456\",\r\n  \"phoneNumber\": \"{{phoneNumber}}\",\r\n  \"otpCode\": \"716662\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/edit/password?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"edit",
+										"password"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "206"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ce-M+RjXFVW9iHuQOLd0NV5BUIsp7M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Dec 2023 17:24:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"approved\",\n    \"message\": \"User updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\",\n        \"createdAt\": \"2023-12-18T17:16:52.000Z\",\n        \"updatedAt\": \"2023-12-18T17:24:37.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/delete?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/delete?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-u+5WwUB2CdJCWMLA48Z93gHKx1M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:18:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User deleted successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/2/delete?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"2",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/delete?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-u+5WwUB2CdJCWMLA48Z93gHKx1M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:18:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User deleted successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"{{refresh-token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/logout?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"{{refresh-token}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/logout?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "119"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"77-Nyn7etANQZ9q8XiKvltlsuaLLMQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:18:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Logout successful\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Food API",
+			"item": [
+				{
+					"name": "Get All Foods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/allFoods?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"allFoods"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Foods",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/allFoods?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"allFoods"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1472"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c0-4eT9TeD2rRXsii+hx8E8cd82hdE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:21:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Foods retrieved successfully\",\n    \"totalResults\": 2,\n    \"articles\": [\n        {\n            \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingAyam.png\",\n            \"name\": \"DagingAyam\",\n            \"type\": \"Protein\",\n            \"description\": \"Daging Ayam adalah sumber protein yang baik dan kaya akan nutrisi. Daging ayam mengandung Vitamin B6, Vitamin C, Lemak, Natrium, Asam Amino, Fosfolipid, Kalsium, Magnesium, Fosfor, dan Kalium. Daging Ayam cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n            \"nutrition\": \"Protein, Vitamin B6, Vitamin C, Lemak, Natrium, Asam Amino, Fosfolipid, Kalsium, Magnesium, Fosfor, dan Kalium.\",\n            \"information\": [\n                \"6-9 Bulan\",\n                \"9-12 Bulan\",\n                \"12-23 Bulan\"\n            ],\n            \"status\": [\n                \"Boleh\",\n                \"Boleh\",\n                \"Boleh\"\n            ],\n            \"texture\": [\n                \"Puree\",\n                \"Lebih Kasar\",\n                \"Kasar\"\n            ]\n        },\n        {\n            \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\n            \"name\": \"DagingSapi\",\n            \"type\": \"Protein\",\n            \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n            \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\n            \"information\": [\n                \"6-9 Bulan\",\n                \"9-12 Bulan\",\n                \"12-23 Bulan\"\n            ],\n            \"status\": [\n                \"Boleh\",\n                \"Boleh\",\n                \"Boleh\"\n            ],\n            \"texture\": [\n                \"Puree\",\n                \"Lebih Kasar\",\n                \"Kasar\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Food by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/getClasification?food_name=DaunBawang&api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"getClasification"
+							],
+							"query": [
+								{
+									"key": "food_name",
+									"value": "DaunBawang"
+								},
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Food by Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/getClasification?food_name=dagingSapi&api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"getClasification"
+									],
+									"query": [
+										{
+											"key": "food_name",
+											"value": "dagingSapi"
+										},
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "713"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c9-vi7OW4HfEHjJkqU9Ah6x8BNAkFE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:21:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\n        \"name\": \"DagingSapi\",\n        \"type\": \"Protein\",\n        \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n        \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\n        \"information\": \"[\\\"6-9 Bulan\\\",\\\"9-12 Bulan\\\",\\\"12-23 Bulan\\\"]\",\n        \"status\": \"[\\\"Boleh\\\",\\\"Boleh\\\",\\\"Boleh\\\"]\",\n        \"texture\": \"[\\\"Puree\\\",\\\"Lebih Kasar\\\",\\\"Kasar\\\"]\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add New Food",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\r\n    \"name\": \"DagingSapi\",\r\n    \"type\": \"Protein\",\r\n    \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\r\n    \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\r\n    \"information\": [\r\n        \"6-9 Bulan\", \r\n        \"9-12 Bulan\", \r\n        \"12-23 Bulan\"\r\n    ],\r\n    \"status\": [\r\n        \"Boleh\", \r\n        \"Boleh\", \r\n        \"Boleh\"\r\n    ],\r\n    \"texture\": [\r\n        \"Puree\", \r\n        \"Lebih Kasar\", \r\n        \"Kasar\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/addFood?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"addFood"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add New Food",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\r\n    \"name\": \"DagingSapi\",\r\n    \"type\": \"Protein\",\r\n    \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\r\n    \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\r\n    \"information\": [\r\n        \"6-9 Bulan\", \r\n        \"9-12 Bulan\", \r\n        \"12-23 Bulan\"\r\n    ],\r\n    \"status\": [\r\n        \"Boleh\", \r\n        \"Boleh\", \r\n        \"Boleh\"\r\n    ],\r\n    \"texture\": [\r\n        \"Puree\", \r\n        \"Lebih Kasar\", \r\n        \"Kasar\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/addFood?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"addFood"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "743"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e7-q60hZIXciFEC0nAZjMlz1lZpHPo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:21:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"foods\": {\n        \"id\": 2,\n        \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\n        \"name\": \"DagingSapi\",\n        \"type\": \"Protein\",\n        \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n        \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\"\n    },\n    \"classification\": {\n        \"name\": \"DagingSapi\",\n        \"information\": [\n            \"6-9 Bulan\",\n            \"9-12 Bulan\",\n            \"12-23 Bulan\"\n        ],\n        \"status\": [\n            \"Boleh\",\n            \"Boleh\",\n            \"Boleh\"\n        ],\n        \"texture\": [\n            \"Puree\",\n            \"Lebih Kasar\",\n            \"Kasar\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Food",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/deleteFood?food_name=DagingSapi&api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"deleteFood"
+							],
+							"query": [
+								{
+									"key": "food_name",
+									"value": "DagingSapi"
+								},
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Food",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/deleteFood?food_name=DagingSapi&api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"deleteFood"
+									],
+									"query": [
+										{
+											"key": "food_name",
+											"value": "DagingSapi"
+										},
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"57-PRIbIUMoCyjLRXlE46xsvH8YoGU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:22:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"foods\": {\n        \"id\": 0,\n        \"name\": \"DagingSapi\"\n    },\n    \"classification\": {\n        \"deletedNames\": [\n            \"DagingSapi\"\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Article API",
+			"item": [
+				{
+					"name": "Get All Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/article/allArticles?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"article",
+								"allArticles"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Articles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/article/allArticles?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"article",
+										"allArticles"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1475"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c3-twSK6v63kBhl0yufUQBTbcy3cO0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 07:22:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"All articles retrieved successfully\",\n    \"totalArticleCount\": 2,\n    \"articles\": [\n        {\n            \"articleId\": 1,\n            \"articleName\": \"Hello Sehatss\",\n            \"author\": \"Nica Osorio\",\n            \"title\": \"Perkembangan Bayi 6 Bulan\",\n            \"description\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\",\n            \"url\": \"https://hellosehat.com/parenting/bayi/bayi-1-tahun-pertama/perkembangan-bayi-6-bulan/\",\n            \"urlToImage\": \"https://cdn.hellosehat.com/wp-content/uploads/1970/01/perkembangan-bayi-24-minggu.jpg?w=828&q=75\",\n            \"publishedAt\": \"2023-06-02T00:00:00.000Z\",\n            \"content\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\"\n        },\n        {\n            \"articleId\": 2,\n            \"articleName\": \"New Article Title\",\n            \"author\": \"New Author\",\n            \"title\": \"New Article Title\",\n            \"description\": \"New article description goes here. It can be similar to the previous one but with updated content.\",\n            \"url\": \"https://example.com/new-article\",\n            \"urlToImage\": \"https://example.com/new-article-image.jpg\",\n            \"publishedAt\": \"2023-12-19T00:00:00.000Z\",\n            \"content\": \"New article content goes here. It can be similar to the previous one but with updated information.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Article by ArticleID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/article/getArticle/?articleId=1&api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"article",
+								"getArticle",
+								""
+							],
+							"query": [
+								{
+									"key": "articleId",
+									"value": "1"
+								},
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Article by ArticleID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/article/getArticle/?articleId=1&api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"article",
+										"getArticle",
+										""
+									],
+									"query": [
+										{
+											"key": "articleId",
+											"value": "1"
+										},
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "981"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d5-w0yZmu1xBSLLhZKn2KVrT+F3r/c\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 07:13:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Article retrieved successfully\",\n    \"article\": {\n        \"articleId\": 1,\n        \"articleName\": \"Hello Sehatss\",\n        \"author\": \"Nica Osorio\",\n        \"title\": \"Perkembangan Bayi 6 Bulan\",\n        \"description\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\",\n        \"url\": \"https://hellosehat.com/parenting/bayi/bayi-1-tahun-pertama/perkembangan-bayi-6-bulan/\",\n        \"urlToImage\": \"https://cdn.hellosehat.com/wp-content/uploads/1970/01/perkembangan-bayi-24-minggu.jpg?w=828&q=75\",\n        \"publishedAt\": \"2023-06-02T00:00:00.000Z\",\n        \"content\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Post New Article",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"articleName\": \"Hello Sehatss\",\r\n  \"author\": \"Nica Osorio\",\r\n  \"title\": \"Perkembangan Bayi 6 Bulan\",\r\n  \"description\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\",\r\n  \"url\": \"https://hellosehat.com/parenting/bayi/bayi-1-tahun-pertama/perkembangan-bayi-6-bulan/\",\r\n  \"urlToImage\": \"https://cdn.hellosehat.com/wp-content/uploads/1970/01/perkembangan-bayi-24-minggu.jpg?w=828&q=75\",\r\n  \"publishedAt\": \"2023-06-02\",\r\n  \"content\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/article/addArticle?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"article",
+								"addArticle"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post New Article",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"articleName\": \"Hello Sehatss\",\r\n  \"author\": \"Nica Osorio\",\r\n  \"title\": \"Perkembangan Bayi 6 Bulan\",\r\n  \"description\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\",\r\n  \"url\": \"https://hellosehat.com/parenting/bayi/bayi-1-tahun-pertama/perkembangan-bayi-6-bulan/\",\r\n  \"urlToImage\": \"https://cdn.hellosehat.com/wp-content/uploads/1970/01/perkembangan-bayi-24-minggu.jpg?w=828&q=75\",\r\n  \"publishedAt\": \"2023-06-02\",\r\n  \"content\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/article/addArticle?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"article",
+										"addArticle"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "965"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c5-a66psHSG/1bv70LEI//9i7W72VE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 07:13:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Article created successfully\",\n    \"article\": {\n        \"articleId\": 1,\n        \"articleName\": \"Hello Sehatss\",\n        \"author\": \"Nica Osorio\",\n        \"title\": \"Perkembangan Bayi 6 Bulan\",\n        \"description\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\",\n        \"url\": \"https://hellosehat.com/parenting/bayi/bayi-1-tahun-pertama/perkembangan-bayi-6-bulan/\",\n        \"urlToImage\": \"https://cdn.hellosehat.com/wp-content/uploads/1970/01/perkembangan-bayi-24-minggu.jpg?w=828&q=75\",\n        \"publishedAt\": \"2023-06-02\",\n        \"content\": \"Menuju ulang tahun pertama si Kecil, kini ada hal baru yang akan mulai dipelajari bayi usia 6 bulan. Ya, salah satu perkembangan bayi 6 bulan adalah belajar makan makanan pendamping ASI (MPASI). Hal menarik apa lagi yang sudah bisa dilakukan si Kecil di usia ini?\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Article by ArticleID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/article/deleteArticle/?articleId=2&api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"article",
+								"deleteArticle",
+								""
+							],
+							"query": [
+								{
+									"key": "articleId",
+									"value": "2"
+								},
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Article by ArticleID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/article/deleteArticle/?articleId=1&api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"article",
+										"deleteArticle",
+										""
+									],
+									"query": [
+										{
+											"key": "articleId",
+											"value": "1"
+										},
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-i27QSS2x7lJPtyPnqagSJEixCy8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 07:22:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Article deleted successfully\",\n    \"deletedArticleId\": 1\n}"
+						},
+						{
+							"name": "Delete Article by ArticleID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/article/deleteArticle/?articleId=2&api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"article",
+										"deleteArticle",
+										""
+									],
+									"query": [
+										{
+											"key": "articleId",
+											"value": "2"
+										},
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-ViltqRum+oJc6bRpmCAO3Ypzw1w\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 07:23:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Article deleted successfully\",\n    \"deletedArticleId\": 2\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
