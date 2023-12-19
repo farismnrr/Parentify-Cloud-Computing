@@ -1,0 +1,72 @@
+GET http://34.67.98.110:3001
+Authorization: Bearer YOUR_TOKEN
+
+### Login Route
+POST http://34.67.98.110:3001/auth/login?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+{
+    "username": "farismnrr",
+    "email": "test@gmail.com",
+    "password": "root1a231231"
+}
+
+### Register Route
+POST http://34.67.98.110:3001/auth/register?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+{
+    "username": "farismnrrr",
+    "email": "testr@gmail.com",
+    "password": "root1a231231"
+}
+
+### Refresh Token Route
+POST http://34.67.98.110:3001/auth/refresh-token?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+{
+    "refreshToken": "YOUR_REFRESH_TOKEN"
+}
+
+### Logout Route
+DELETE http://34.67.98.110:3001/auth/logout?api_key=YOUR_API_KEY
+Content-Type: application/json
+
+{
+    "refreshToken": "YOUR_REFRESH_TOKEN"
+}
+
+### Get all foods
+GET http://localhost:3001/food/allFoods
+
+### Get spesific food
+GET http://localhost:3001/food/getClasification?food_name=Banana
+
+### Add food to database 
+POST http://localhost:3001/food/addFood
+Content-Type: application/json
+
+{
+    "img": "https://storage.googleapis.com/parentify-ch2-ps318.appspot.com/results/almond.png",
+    "name": "pisangssssssssssssssssssssssssss",
+    "type": "Kacang",
+    "description": "Kacang almond merupakan biji dari pohon almond (Prunus dulcis) yang memiliki ciri khas kulit keras dan daging yang lembut di dalamnya. Almond sering dikonsumsi sebagai camilan sehat atau diolah dalam berbagai hidangan, baik yang manis maupun gurih. Kacang almond kaya akan nutrisi, termasuk vitamin E, serat, protein, dan lemak sehat, seperti asam lemak tak jenuh ganda. Mereka juga diketahui memberikan berbagai manfaat kesehatan, seperti mendukung kesehatan jantung, meningkatkan fungsi otak, dan menjaga kadar gula darah. Almond juga sering digunakan dalam pembuatan susu almond, tepung almond, dan minyak almond, menjadikannya bahan serbaguna dalam dunia kuliner dan kesehatan.",
+    "nutrition": "Vitamin E, serat, protein, lemak sehat (asam lemak tak jenuh ganda), magnesium, kalsium, zat besi, fosfor, biotin (Vitamin B7), dan riboflavin (Vitamin B2).",
+    "information": [
+        "6-9 Bulan",
+        "9-12 Bulan",
+        "12-23 Bulan"
+    ],  
+    "status": [
+        "Boleh",
+        "Boleh",
+        "Boleh"
+    ],
+    "texture": [
+        "Puree",
+        "Puree",
+        "Sedikit Kasar"
+    ]
+}
+

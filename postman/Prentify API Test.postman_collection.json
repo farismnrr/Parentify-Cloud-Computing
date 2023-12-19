@@ -1,0 +1,1316 @@
+{
+	"info": {
+		"_postman_id": "238b1a4f-714c-4589-a400-3a778226a082",
+		"name": "Prentify API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30262904"
+	},
+	"item": [
+		{
+			"name": "JWT API",
+			"item": [
+				{
+					"name": "Server Authentication",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{secret-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://{{url}}:{{port}}/"
+					},
+					"response": [
+						{
+							"name": "Server Authentication",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://{{url}}:{{port}}/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "16"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10-AaonMweIxSeFn3xKQofzBTeJYhQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:07:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Server connected"
+						}
+					]
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/allUsers?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"allUsers"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"radityalungguk\",\r\n    \"email\": \"radityalungguk@gmail.com\",\r\n    \"password\": \"testraditya\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/allUsers?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"allUsers"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1632"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"660-PQTy4GMoXkVd97QPAY5yl3esyUQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:05:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Users retrieved successfully\",\n    \"totalResults\": 2,\n    \"users\": [\n        {\n            \"id\": 1,\n            \"username\": \"radityalungguk\",\n            \"email\": \"radityalungguk@gmail.com\",\n            \"password\": \"$2b$10$cZCzs25NWv/o6HKqDG/deOFCT70KhS7t3sv65DANchmj9.EG5iAfm\",\n            \"createdAt\": \"2023-12-16T21:05:10.000Z\",\n            \"updatedAt\": \"2023-12-16T21:05:09.000Z\",\n            \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyNzYwNzA5LCJleHAiOjE3MzQzMTgzMDksImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.F5U1KjWztd7R3gkm-ahAUJ-JLkkb7DcbrT8Lp3E1_aZSOzJ_NjGpfWEp0x1-PpU-FGTYE2uR5-Sp8DCX1tbOgZKg_sNrEfcX0OPanXzIQnC53NdrXIB3BgYHsXW_pmhFz5ng8anGY344CmOEkF4wcqkM9uq3D0FhsfP3NvlhWyCZwiRuvAwPqIiindR-kqkEuMzhMBpgnSaWTmvZocejmxInq1nY7Lbkyps9Zlx_DgpZG2JfXpjI9klA65xfYpNT1FZTWolcOO7Uaz14HmhqtbqMptcRV6f7hBl7gdeb9PjTS3JE50_3kHkkvqnH9nN4vJZ5JR3j7fYxSCVeexpFcQ\"\n        },\n        {\n            \"id\": 2,\n            \"username\": \"farismnrr\",\n            \"email\": \"farismnrr@gmail.com\",\n            \"password\": \"$2b$10$oO2Qj5cwjU2FbRVfCDxL6e.ZxKx/oNNWSstGRLcWxuy8QsEMpfRgS\",\n            \"createdAt\": \"2023-12-16T21:05:43.000Z\",\n            \"updatedAt\": \"2023-12-16T21:05:43.000Z\",\n            \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyNzYwNzQzLCJleHAiOjE3MzQzMTgzNDMsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.ugwXHmUcySpPGuZXRPXFCDVvdwAuDogczBUGLABNlXV__AWb_tpdB9ftwGZICPjxIfnam20a8ebb009hwyle4Vj4_ZlX1zy88SPRpbcIsK21AuOnBDRb6l7wxqGw-v5Ps6gmTvX9JXJzJs4cvxwU7CAc-hi5CXX2oBwaaMzqDqnoDo3W7qJv7dhFSZqvCeGxty9YyInIEG24sOYUzW2bVDD8xq7ZA7dcSCSKlWSuC_y0L0kuwZ1pULM62bhkBxIJbQsYlicuSnBtllcpFfyUIW60RCOS23q8wKdgF--hBBLmkcqk8EwqAVyIOSwrALbidYkyX8bw2uV5L6wqRUxoQg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Register New User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/register?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register New User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"radityalungguk\",\r\n    \"email\": \"radityalungguk@gmail.com\",\r\n    \"password\": \"testraditya\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/register?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"register"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1295"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50f-jtjwUty2k6E/+jmwYyHXKM0LLOo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:05:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"radityalungguk\",\n        \"email\": \"radityalungguk@gmail.com\",\n        \"createdAt\": \"2023-12-16T21:05:09.540Z\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyNzYwNzA5LCJleHAiOjE3MDI3NjA3MTksImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.uQJyWAu83CfDc8pWtjHUw8wglsh4qflwmOsBomp1cS98UOeV3f7XZhLCbfTK0EB-KBztbdkpgD2YBGJfYrFUDtL2dDlEz24hdRhoM32lG29H3pt0WX0bE_i3vTK4MnvFpi0CnLMqVawl1gn4O20cIoSoaKE5w_QCuMfWYQiVTmtWi6AtB8tTyA0YaejlT7gOGRaEaIjVdLGxs3MYl1UaUK-gIm_hw-O_zmiCRDjLT1zMIhc_opJOu_YWxuk0ymiFhe_B-6bRUwEKrXiMt9hWZnJj3Be-IfgfaB5tPEehEmJd_xFgxz-BI_wd0urk6i4hO6nAFVUAdQHHGfzvVfXKsA\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MSwiaWF0IjoxNzAyNzYwNzA5LCJleHAiOjE3MzQzMTgzMDksImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.F5U1KjWztd7R3gkm-ahAUJ-JLkkb7DcbrT8Lp3E1_aZSOzJ_NjGpfWEp0x1-PpU-FGTYE2uR5-Sp8DCX1tbOgZKg_sNrEfcX0OPanXzIQnC53NdrXIB3BgYHsXW_pmhFz5ng8anGY344CmOEkF4wcqkM9uq3D0FhsfP3NvlhWyCZwiRuvAwPqIiindR-kqkEuMzhMBpgnSaWTmvZocejmxInq1nY7Lbkyps9Zlx_DgpZG2JfXpjI9klA65xfYpNT1FZTWolcOO7Uaz14HmhqtbqMptcRV6f7hBl7gdeb9PjTS3JE50_3kHkkvqnH9nN4vJZ5JR3j7fYxSCVeexpFcQ\"\n    }\n}"
+						},
+						{
+							"name": "Register New User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/register?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"register"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1285"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"505-weXHAirHETIsrYjOzZLSnri8DqA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:05:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\",\n        \"createdAt\": \"2023-12-16T21:05:43.412Z\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyNzYwNzQzLCJleHAiOjE3MDI3NjA3NTMsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.IhDOzMQin7Ow73sYCJ8YPPlvUS_UbHkVuyvrQ2p2fUf2PW8fqk7Y-HIZq9q2oWcZuRa8uoeqSXyG1bG51psOfqTxQewJN8pj1kHqzvLO5qDOprXAyRgbvYcaEOTecgwql4UU0TDUlFnjr8mwrzibEQwcS9bQBm5WLsqin_FbX43ibzQNWMATkPVMW68q6BO5YL668kOLewHM8Uo2zRv_dHXlCoqva7vnm4hgR51vKlpJAoCCFGq-_atfXYUpvTVQBQD06uZuptuxrVK6Kb43xhhlmq0HR1nP_MbEEhCmdw6-qytenpe_L9SHzfWH5sOAjrc56DkurdveaFX_20vrAg\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyNzYwNzQzLCJleHAiOjE3MzQzMTgzNDMsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.ugwXHmUcySpPGuZXRPXFCDVvdwAuDogczBUGLABNlXV__AWb_tpdB9ftwGZICPjxIfnam20a8ebb009hwyle4Vj4_ZlX1zy88SPRpbcIsK21AuOnBDRb6l7wxqGw-v5Ps6gmTvX9JXJzJs4cvxwU7CAc-hi5CXX2oBwaaMzqDqnoDo3W7qJv7dhFSZqvCeGxty9YyInIEG24sOYUzW2bVDD8xq7ZA7dcSCSKlWSuC_y0L0kuwZ1pULM62bhkBxIJbQsYlicuSnBtllcpFfyUIW60RCOS23q8wKdgF--hBBLmkcqk8EwqAVyIOSwrALbidYkyX8bw2uV5L6wqRUxoQg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/login?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/login?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"login"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1248"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e0-A7j7yZ+Uf1mbCaPkj3Jrjn4NBAU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:06:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User logged in successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyNzYwODA2LCJleHAiOjE3MDI3NjA4MTYsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.CxTjM_QrHHxi_XcgkB1iQuMDIEaxxQX4zgr4Mhdyt-0S8Y--LFhrnZfR3CKZko-tOjRL3CKSrKigzeoN8neHjFUwxMTTERZgfd0KfgvkA80sY_rubg5RXiRE99GKcnb2UR_crwezTy-lCO2ViS7cBwJq0t13kPAfdETdJomAv3Zx1gQmmAZemTtbkZIVXo9QfmnDmjIFeNlzjJxmOggRSUzybHKxgImMAu0f_FYl9HoVrxUuCk00J3K7UxX4DyYzAQaFyZKokywB26okRFE27zVem-9WgsSdAxstpFbB7FnjAR5i2_4fKWIgkiDSmY6jmaRcxRhbYPsHAOacsuilkw\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6MiwiaWF0IjoxNzAyNzYwODA2LCJleHAiOjE3MzQzMTg0MDYsImlzcyI6ImZhcmlzbW5yci5teS5pZCJ9.iLmfarewFR1dDMvHoDva8PL-iCgLwNs01H-Dl9bq5-YgfxckuvkYNZJbV6qdU1CkGOJdpfP5-rVmCGHY5t62nvoG9mJTDohCE0thk0D7RxmYZsnU7D_q8_qOrCl28ocUzP0FCKEaS0u2BICNIACbGiemSsuk2ipVd6Zq-PwoPyB5iScRFMZpPuO7Ut-o6l839YA6nGS41k139oddo6d28xr3LKSBsFxrHUborPv3FLXRl9Fu3gTKdqW6bL_CRbO-yVWJN7l-Sc5hfpF9DaifoTtuMV7bIu2ktvXw25OCvIVhWoXN3qjNQP5dkbwoSUUEpyvfDz8WvVaeTS1aYTjB2A\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"1234567\",\r\n  \"confirmPassword\": \"1234567\",\r\n  \"username\": \"farismnrr\",\r\n  \"email\": \"farismnrr@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/2/user?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"2",
+								"user"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User Data",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"1234567\",\r\n  \"confirmPassword\": \"1234567\",\r\n  \"username\": \"farismnrr\",\r\n  \"email\": \"farismnrr@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/2/user?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"2",
+										"user"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1332"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"534-1pKlIeYV2lIgjBu8XthBxEl7UoE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:17:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User updated successfully\",\n    \"data\": {\n        \"id\": \"2\",\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\",\n        \"createdAt\": \"2023-12-16T21:05:43.000Z\",\n        \"updatedAt\": \"2023-12-16T21:17:36.549Z\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6IjIiLCJpYXQiOjE3MDI3NjE0NTYsImV4cCI6MTcwMjc2MTQ2NiwiaXNzIjoiZmFyaXNtbnJyLm15LmlkIn0.IiQ0r0KoAS8Bm5htbWTdyLaozlsA6_k8vZ1YiYSfB7RflUS8nqpI9DQ4b6vVjpxSfUbfoFqs3V1nvPtWkO4toq9hKnqTHqnFDd8cTto8nlSMzJOk8s4tJyrRDr3z64iiHaAYLcVjVDn_ERvE3FO5PKeg5lycxYyGNJiwVRhx4i6-grx8-yIdJU3M34JUktWzpD-HPjA_AofSsIxMTi-tNU6mjwlu9EvXLDMNR6MkSfc49LZaXpDG3evvraH6abDD-LixzzF52h84JTfjlKsd5CPEdHdSz0lLjmiPMaVlAwr-NexlAIPb7kp7yiPZ60oB_qFJwDanRDwUSBTAFCALsA\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6IjIiLCJpYXQiOjE3MDI3NjE0NTYsImV4cCI6MTczNDMxOTA1NiwiaXNzIjoiZmFyaXNtbnJyLm15LmlkIn0.TO6yvxiwkhMqVoQSG8pGVFq1FpkoxSpKHB8vTOH1xbagZ2rZjGK2P-i5f59aEeNDOrvSYNwc-AdM91s3AOVubgKOq5Ip3Gq1Cb7bFjwGtxz9T_rLG4z84kfN6-Rz04mMM5xKnakUQWqR-mF7ksRYm6dO_fjk2bbAWGumm3mavazgCtK0RhZnj_rVilUxiPQ707x1dP6mVReI2l166GuJuOo2rumyIXIq1Lava8XR7oKk8z4Qeu1vT-OlHOPMeNvVthe_F8MKEGTHvFRfHgKnJwJRBGkNSt5w-mV21J7ByTaZOincHwFX6qAQ9rmK9RG6Wb51xqmRdflmRMV2rp_TVQ\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"123456\",\r\n  \"newPassword\": \"1234567\",\r\n  \"confirmPassword\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/2/password?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"2",
+								"password"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User Password",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"123456\",\r\n  \"newPassword\": \"1234567\",\r\n  \"confirmPassword\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/2/password?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"2",
+										"password"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1341"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53d-UHF2nWm+e4blRwrndXj1qB4Ppro\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:09:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User password updated successfully\",\n    \"data\": {\n        \"id\": \"2\",\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\",\n        \"createdAt\": \"2023-12-16T21:05:43.000Z\",\n        \"updatedAt\": \"2023-12-16T21:09:11.588Z\",\n        \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyZWJhOTAwZTU1MDFiMzY2ZDVlM2NhOTI0ZGU0Y2Q1OWZjMDc2MGUifQ.eyJhdWRpZW5jZSI6IjIiLCJpYXQiOjE3MDI3NjA5NTEsImV4cCI6MTcwMjc2MDk2MSwiaXNzIjoiZmFyaXNtbnJyLm15LmlkIn0.wnwCGTNAHDEqR6bZamWRyle6D_YcJLy3PM8VGxfaXdXXKh4aJRvFlPXwj-lZruGQIerYNg79BZElYrMQIlhwe6u2bs1NYDKzKoSbKnvPiFzMqz6-EDwYPaj67kLRl9YvQYtXy9SpnQ87guttwip_nBre9ACh8n23WijXWsQA1ds_4scwakQX2eulp6E3zf3eHh250pya3pldU9lrctayXq-7_t49ulqSa6JhBRHpT1LSW1D_o_gomzyM2sdBueBdp1CNOsDCoy6wKIC4Ug0F8bCvK2ECQ-5gVBmSOlc4LqCyKZf0lHQZ1_CRS_qHlEOM579FSgCndLicFBMsuH6anw\",\n        \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1ZTQ5Mjc4NTVkZTk0NWU4ODg1OGRhNDlhNzgzZjQ4YzNiMjgxNTAifQ.eyJhdWRpZW5jZSI6IjIiLCJpYXQiOjE3MDI3NjA5NTEsImV4cCI6MTczNDMxODU1MSwiaXNzIjoiZmFyaXNtbnJyLm15LmlkIn0.u1Jh4yA7TiikAOOXnsd6LAWGrpzlBU7aqaMmGuMpRNqNKkUwEAyU3seuTC0efg_INhQsvJGWi7PAw3-q-Q6jLtymKeuL8ky63ufbahqRMCT57uokCBc8e8mAGclO4zHg2CiwdbLxvAYimuYGjpgmspdBPL7c3Ue3SXOMUjGp3GLAgLr9zB02gyWvQQXaUppTylI-0Ikrzm0SCokrJ9Te9TQ5BhQJZqKf-Owoo9caiJ_5lQnj_ufn1oirNgV55SCcyNiqrL7iK1wLt69v8hHt0IngxAd2QLf2hRRGyaXh-7XS_RyDGEDNTHcc-jE6yubFgV2Z8ivM9MeeQZOPaAZ-_w\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/delete?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"farismnrr\",\r\n    \"email\": \"farismnrr@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/delete?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-u+5WwUB2CdJCWMLA48Z93gHKx1M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:18:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User deleted successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"{{refresh-token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/logout?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"{{refresh-token}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/auth/logout?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "119"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"77-Nyn7etANQZ9q8XiKvltlsuaLLMQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:18:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Logout successful\",\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"farismnrr\",\n        \"email\": \"farismnrr@gmail.com\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Food API",
+			"item": [
+				{
+					"name": "Get All Foods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/allFoods?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"allFoods"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Foods",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/allFoods?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"allFoods"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1472"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c0-4eT9TeD2rRXsii+hx8E8cd82hdE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:21:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Foods retrieved successfully\",\n    \"totalResults\": 2,\n    \"articles\": [\n        {\n            \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingAyam.png\",\n            \"name\": \"DagingAyam\",\n            \"type\": \"Protein\",\n            \"description\": \"Daging Ayam adalah sumber protein yang baik dan kaya akan nutrisi. Daging ayam mengandung Vitamin B6, Vitamin C, Lemak, Natrium, Asam Amino, Fosfolipid, Kalsium, Magnesium, Fosfor, dan Kalium. Daging Ayam cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n            \"nutrition\": \"Protein, Vitamin B6, Vitamin C, Lemak, Natrium, Asam Amino, Fosfolipid, Kalsium, Magnesium, Fosfor, dan Kalium.\",\n            \"information\": [\n                \"6-9 Bulan\",\n                \"9-12 Bulan\",\n                \"12-23 Bulan\"\n            ],\n            \"status\": [\n                \"Boleh\",\n                \"Boleh\",\n                \"Boleh\"\n            ],\n            \"texture\": [\n                \"Puree\",\n                \"Lebih Kasar\",\n                \"Kasar\"\n            ]\n        },\n        {\n            \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\n            \"name\": \"DagingSapi\",\n            \"type\": \"Protein\",\n            \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n            \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\n            \"information\": [\n                \"6-9 Bulan\",\n                \"9-12 Bulan\",\n                \"12-23 Bulan\"\n            ],\n            \"status\": [\n                \"Boleh\",\n                \"Boleh\",\n                \"Boleh\"\n            ],\n            \"texture\": [\n                \"Puree\",\n                \"Lebih Kasar\",\n                \"Kasar\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Food by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/getClasification?food_name=dagingSapi&api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"getClasification"
+							],
+							"query": [
+								{
+									"key": "food_name",
+									"value": "dagingSapi"
+								},
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Food by Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/getClasification?food_name=dagingSapi&api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"getClasification"
+									],
+									"query": [
+										{
+											"key": "food_name",
+											"value": "dagingSapi"
+										},
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "713"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c9-vi7OW4HfEHjJkqU9Ah6x8BNAkFE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:21:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\n        \"name\": \"DagingSapi\",\n        \"type\": \"Protein\",\n        \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n        \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\n        \"information\": \"[\\\"6-9 Bulan\\\",\\\"9-12 Bulan\\\",\\\"12-23 Bulan\\\"]\",\n        \"status\": \"[\\\"Boleh\\\",\\\"Boleh\\\",\\\"Boleh\\\"]\",\n        \"texture\": \"[\\\"Puree\\\",\\\"Lebih Kasar\\\",\\\"Kasar\\\"]\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add New Food",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\r\n    \"name\": \"DagingSapi\",\r\n    \"type\": \"Protein\",\r\n    \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\r\n    \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\r\n    \"information\": [\r\n        \"6-9 Bulan\", \r\n        \"9-12 Bulan\", \r\n        \"12-23 Bulan\"\r\n    ],\r\n    \"status\": [\r\n        \"Boleh\", \r\n        \"Boleh\", \r\n        \"Boleh\"\r\n    ],\r\n    \"texture\": [\r\n        \"Puree\", \r\n        \"Lebih Kasar\", \r\n        \"Kasar\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/addFood?api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"addFood"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add New Food",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\r\n    \"name\": \"DagingSapi\",\r\n    \"type\": \"Protein\",\r\n    \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\r\n    \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\",\r\n    \"information\": [\r\n        \"6-9 Bulan\", \r\n        \"9-12 Bulan\", \r\n        \"12-23 Bulan\"\r\n    ],\r\n    \"status\": [\r\n        \"Boleh\", \r\n        \"Boleh\", \r\n        \"Boleh\"\r\n    ],\r\n    \"texture\": [\r\n        \"Puree\", \r\n        \"Lebih Kasar\", \r\n        \"Kasar\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/addFood?api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"addFood"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "743"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e7-q60hZIXciFEC0nAZjMlz1lZpHPo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:21:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"foods\": {\n        \"id\": 2,\n        \"img\": \"https://storage.googleapis.com/parentify-data/foods/protein/DagingSapi.png\",\n        \"name\": \"DagingSapi\",\n        \"type\": \"Protein\",\n        \"description\": \"Daging Sapi adalah sumber protein berkualitas tinggi dengan kandungan nutrisi yang meliputi Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi. Daging Sapi cocok untuk dikonsumsi pada berbagai tahap perkembangan bayi, mulai dari 6 hingga 23 bulan.\",\n        \"nutrition\": \"Protein, Lemak, Natrium, Fosfor, Kalsium, Vitamin C, Vitamin B6, Magnesium, Zinc, Kalium, dan Zat Besi.\"\n    },\n    \"classification\": {\n        \"name\": \"DagingSapi\",\n        \"information\": [\n            \"6-9 Bulan\",\n            \"9-12 Bulan\",\n            \"12-23 Bulan\"\n        ],\n        \"status\": [\n            \"Boleh\",\n            \"Boleh\",\n            \"Boleh\"\n        ],\n        \"texture\": [\n            \"Puree\",\n            \"Lebih Kasar\",\n            \"Kasar\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Food",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/food/deleteFood?food_name=DagingSapi&api_key={{api-key}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"food",
+								"deleteFood"
+							],
+							"query": [
+								{
+									"key": "food_name",
+									"value": "DagingSapi"
+								},
+								{
+									"key": "api_key",
+									"value": "{{api-key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Food",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/food/deleteFood?food_name=DagingSapi&api_key={{api-key}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"food",
+										"deleteFood"
+									],
+									"query": [
+										{
+											"key": "food_name",
+											"value": "DagingSapi"
+										},
+										{
+											"key": "api_key",
+											"value": "{{api-key}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"57-PRIbIUMoCyjLRXlE46xsvH8YoGU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Dec 2023 21:22:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"foods\": {\n        \"id\": 0,\n        \"name\": \"DagingSapi\"\n    },\n    \"classification\": {\n        \"deletedNames\": [\n            \"DagingSapi\"\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
