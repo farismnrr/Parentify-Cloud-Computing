@@ -1,4 +1,4 @@
-# MYSQL
+# How to Install
 ---
 - **Update and Install MySQL**
 ```bash
@@ -45,7 +45,7 @@ YOUR_PASSWORD
 - **See file database.sql to create database and table**
 
 
-# NodeJS
+### NodeJS
 ---
 - **Install NodeJS**
 ```bash
@@ -67,7 +67,7 @@ sudo apt install git
 git clone https://github.com/Parentify/Parentify-Cloud-Computing.git
 ```
 
-# Create Credential Keys
+### Create Credential Keys
 ---
 - Open Link: https://console.cloud.google.com/iam-admin/serviceaccounts
 - Click your project service account
@@ -77,7 +77,7 @@ git clone https://github.com/Parentify/Parentify-Cloud-Computing.git
 - Change the name of the other file to refresh-token.json
 - put both files into the same directory as app.js
 
-# Create Automatic Update and Deploy
+### Create Automatic Update and Deploy
 ---
 - Move the bash into the main directory
 - See the directory by command `pwd` and save the directory
@@ -98,63 +98,5 @@ chmod +x update_and_deploy.sh
 ./update_and_deploy.sh
 ```
 
-# Food API
----
-- **API Semua Makanan:** http://34.30.213.144:3001/food/allFoods?api_key=YOUR_API_KEY
-- **API Berdasarkan Nama Makanan (ganti `namaMakanan` dengan nama sebenarnya):** `http://34.30.213.144/3001/food/getClasification?food_name=namaMakanan?api_key=YOUR_API_KEY`
-- **Contoh Penggunaan:** http://34.30.213.144/3001/food/getClasification?food_name=berasPutih?api_key=YOUR_API_KEY (Mengambil informasi tentang beras putih)
-
-# JWT API
----
-### Server Test
-- **Method:** GET
-- **URL:** http://34.30.213.144:3001
-- **Authorization:** Bearer YOUR_TOKEN
-
-### Login Route
-- **Method:** POST
-- **URL:** http://34.30.213.144:3001/auth/login?api_key=YOUR_API_KEY
-- **Content-Type:** application/json
-
-    ```json
-    {
-        "username": "farismnrr",
-        "email": "test@gmail.com",
-        "password": "root1a231231"
-    }
-    ```
-
-### Register Route
-- **Method:** POST
-- **URL:** http://34.30.213.144:3001/auth/register?api_key=YOUR_API_KEY
-- **Content-Type:** application/json
-
-    ```json
-    {
-        "username": "farismnrrr",
-        "email": "testr@gmail.com",
-        "password": "root1a231231"
-    }
-    ```
-
-### Refresh Token Route
-- **Method:** POST
-- **URL:** http://34.30.213.144:3001/auth/refresh-token?api_key=YOUR_API_KEY
-- **Content-Type:** application/json
-
-    ```json
-    {
-        "refreshToken": "YOUR_REFRESH_TOKEN"
-    }
-    ```
-
-### Logout Route
-- **Method:** DELETE
-- **URL:** http://34.30.213.144:3001/auth/logout?api_key=YOUR_API_KEY
-- **Content-Type:** application/json
-
-    ```json
-    {
-        "refreshToken": "YOUR_REFRESH_TOKEN"
-    }
-    ```
+# POSTMAN API
+Postman Documentation Link: https://documenter.getpostman.com/view/30262904/2s9YeLYppF#19cce6d8-d84f-4cbc-92a7-233f020548bd
