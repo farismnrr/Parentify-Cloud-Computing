@@ -171,7 +171,7 @@ router.put('/edit/user', async (req, res, next) => {
 
 router.patch('/edit/password', async (req, res, next) => {
     try {
-        const { email, username, newPassword, confirmPassword } =
+        const { email, username, newPassword, confirmPassword, phoneNumber } =
             await resetSchema.validateAsync(req.body);
 
         if (!(email || username)) {
@@ -184,6 +184,7 @@ router.patch('/edit/password', async (req, res, next) => {
             identifier,
             newPassword,
             confirmPassword,
+            phoneNumber,
         );
 
         // Directly return the data from updateUserPassword in the response
