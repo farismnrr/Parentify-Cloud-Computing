@@ -46,33 +46,6 @@ router.get('/allUsers', async (req, res, next) => {
     }
 });
 
-router.get('/edit/get-password', async (req, res, next) => {
-    try {
-        const { email, username, newPassword, confirmPassword } =
-            await getresetSchema.validateAsync(req.body);
-
-        if (!(email || username)) {
-            throw createError.BadRequest('Please insert username or email');
-        }
-
-        const identifier = email || username;
-
-        // If OTP verification is successful, proceed to update password
-        const updateResult = await updateUserPassword(
-            identifier,
-            newPassword,
-            confirmPassword,
-        );
-        res.json(updateResult);
-    } catch (error) {
-        if (error.isJoi === true) error.status = 422;
-        res.status(error.status || 500).send({
-            Status: 'Error',
-            Message: error.message || 'Internal Server Error',
-        });
-    }
-});
-
 router.post('/register', async (req, res, next) => {
     try {
         // Validate request body using JOI schema
@@ -101,39 +74,14 @@ router.post('/register', async (req, res, next) => {
             throw createError(409, `${email} is already registered`);
         }
 
-        const phoneNumber = req.body.phoneNumber;
-        const otpCode = req.body.otpCode;
+        const updateResult = await createUser(
+            username,
+            email,
+            phoneNumber,
+            password,
+        );
 
-        // Validate phone number format
-        if (!(phoneNumber.startsWith('+62') || phoneNumber.startsWith('0'))) {
-            throw {
-                status: 400,
-                message:
-                    'Invalid phone number format. Must start with +62 or 0.',
-            };
-        }
-
-        const otpResult = await verifyOtpAsync(phoneNumber, otpCode);
-
-        if (otpResult.message === 'approved') {
-            const updateResult = await createUser(
-                username,
-                email,
-                phoneNumber,
-                password,
-            );
-
-            res.json({
-                Status: otpResult.message,
-                message: 'User updated successfully',
-                ...updateResult, // Include the data directly
-            });
-        } else {
-            // If OTP verification fails, return the OTP status only
-            res.json({
-                otpStatus: otpResult.message,
-            });
-        }
+        res.json({ updateResult });
     } catch (error) {
         res.status(error.status || 500).send({
             Status: 'Error',
@@ -226,37 +174,20 @@ router.patch('/edit/password', async (req, res, next) => {
         const { email, username, newPassword, confirmPassword } =
             await resetSchema.validateAsync(req.body);
 
-        const phoneNumber = req.body.phoneNumber;
-        const otpCode = req.body.otpCode;
-
         if (!(email || username)) {
             throw createError.BadRequest('Please insert username or email');
         }
 
         const identifier = email || username;
 
-        const otpResult = await verifyOtpAsync(phoneNumber, otpCode);
+        const updateResult = await updateUserPassword(
+            identifier,
+            newPassword,
+            confirmPassword,
+        );
 
-        // If OTP verification is successful, proceed to update password
-        if (otpResult.message === 'approved') {
-            const updateResult = await updateUserPassword(
-                identifier,
-                newPassword,
-                confirmPassword,
-            );
-
-            // Directly return the data from updateUserPassword in the response
-            res.json({
-                Status: otpResult.message,
-                message: 'User updated successfully',
-                ...updateResult, // Include the data directly
-            });
-        } else {
-            // If OTP verification fails, return the OTP status only
-            res.json({
-                otpStatus: otpResult.message,
-            });
-        }
+        // Directly return the data from updateUserPassword in the response
+        res.json({ updateResult });
     } catch (error) {
         if (error.isJoi === true) error.status = 422;
         res.status(error.status || 500).send({
