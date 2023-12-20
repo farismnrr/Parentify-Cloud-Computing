@@ -49,7 +49,7 @@ router.post('/register', async (req, res, next) => {
             throw createError(422, error.message);
         }
 
-        const { username, email, password } = value;
+        const { username, email, password, confirmPassword } = value;
 
         const existingUser = await getUsers();
         const usernameExist = existingUser.some(
@@ -68,7 +68,7 @@ router.post('/register', async (req, res, next) => {
             throw createError(409, `${email} is already registered`);
         }
 
-        const updateResult = await createUser(username, email, password);
+        const updateResult = await createUser(username, email, password, confirmPassword);
 
         res.json({ updateResult });
     } catch (error) {
