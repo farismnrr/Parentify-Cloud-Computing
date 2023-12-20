@@ -34,8 +34,8 @@ async function createUser(username, email, password, confirmPassword) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const [result] = await connection.query(
-        'INSERT INTO users (username, email, phoneNumber, password, createdAt) VALUES (?, ?, ?, ?, ?)',
-        [username, email, phoneNumber, hashedPassword, new Date()],
+        'INSERT INTO users (username, email, password, createdAt) VALUES (?, ?, ?, ?)',
+        [username, email, hashedPassword, new Date()],
     );
 
     const id = result.insertId;
