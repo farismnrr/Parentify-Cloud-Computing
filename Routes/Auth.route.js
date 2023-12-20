@@ -19,8 +19,6 @@ const {
     logoutUser,
     updateUserData,
     updateUserPassword,
-    sendOtpAsync,
-    verifyOtpAsync,
 } = require('../Models/User.model_mysqldb');
 const {
     signAccessToken,
