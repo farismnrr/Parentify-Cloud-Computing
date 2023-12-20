@@ -272,10 +272,6 @@ async function updateUserPassword(
         throw createError.NotFound('Username or email not registered');
     }
 
-    if (user.phoneNumber !== phoneNumber) {
-        throw new Error("phone number doesn't exitst");
-    }
-
     if (newPassword !== confirmPassword) {
         throw new Error('Password and confirm password do not match');
     }
@@ -290,6 +286,10 @@ async function updateUserPassword(
     // If phoneNumber starts with '0', replace the first character with '+62'
     if (phoneNumber.startsWith('0')) {
         phoneNumber = `+62${phoneNumber.substring(1)}`;
+    }
+
+    if (user.phoneNumber !== phoneNumber) {
+        throw new Error("phone number doesn't exitst");
     }
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
