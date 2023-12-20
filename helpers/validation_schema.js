@@ -56,6 +56,13 @@ const resetSchema = Joi.object({
     confirmPassword: Joi.string().required().min(6).required(),
 });
 
+const getresetSchema = Joi.object({
+    email: Joi.string().email().lowercase().optional(),
+    username: Joi.string().alphanum().min(3).max(30).optional(),
+    newPassword: Joi.string().required().min(6).required(),
+    confirmPassword: Joi.string().required().min(6).required(),
+});
+
 module.exports = {
     createFoodSchema,
     deleteFoodSchema,
@@ -65,4 +72,5 @@ module.exports = {
     deleteSchema,
     editUserSchema,
     resetSchema,
+    getresetSchema,
 };
