@@ -8,10 +8,12 @@ const {
     deleteSchema,
     editUserSchema,
     resetSchema,
+    getresetSchema,
 } = require('../helpers/validation_schema');
 const {
     getUsers,
     getUser,
+    getUpdatePassword,
     createUser,
     deleteUser,
     loginUser,
@@ -41,6 +43,33 @@ router.get('/allUsers', async (req, res, next) => {
         });
     } catch (error) {
         next(error);
+    }
+});
+
+router.get('/edit/get-password', async (req, res, next) => {
+    try {
+        const { email, username, newPassword, confirmPassword } =
+            await getresetSchema.validateAsync(req.body);
+
+        if (!(email || username)) {
+            throw createError.BadRequest('Please insert username or email');
+        }
+
+        const identifier = email || username;
+
+        // If OTP verification is successful, proceed to update password
+        const updateResult = await updateUserPassword(
+            identifier,
+            newPassword,
+            confirmPassword,
+        );
+        res.json(updateResult);
+    } catch (error) {
+        if (error.isJoi === true) error.status = 422;
+        res.status(error.status || 500).send({
+            Status: 'Error',
+            Message: error.message || 'Internal Server Error',
+        });
     }
 });
 
