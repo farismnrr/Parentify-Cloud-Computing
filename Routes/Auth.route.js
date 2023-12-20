@@ -68,12 +68,7 @@ router.post('/register', async (req, res, next) => {
             throw createError(409, `${email} is already registered`);
         }
 
-        const updateResult = await createUser(
-            username,
-            email,
-            phoneNumber,
-            password,
-        );
+        const updateResult = await createUser(username, email, password);
 
         res.json({ updateResult });
     } catch (error) {
@@ -138,7 +133,7 @@ router.put('/edit/user', async (req, res, next) => {
 
 router.patch('/edit/password', async (req, res, next) => {
     try {
-        const { email, username, newPassword, confirmPassword, phoneNumber } =
+        const { email, username, newPassword, confirmPassword } =
             await resetSchema.validateAsync(req.body);
 
         if (!(email || username)) {
@@ -151,7 +146,6 @@ router.patch('/edit/password', async (req, res, next) => {
             identifier,
             newPassword,
             confirmPassword,
-            phoneNumber,
         );
 
         // Directly return the data from updateUserPassword in the response
