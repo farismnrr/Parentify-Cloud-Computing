@@ -26,8 +26,11 @@ async function insertToken(userId, refreshToken) {
     return { user: getUser(id), refreshToken };
 }
 
-async function createUser(username, email, password) {
+async function createUser(username, email, password, confirmPassword) {
     // Hash the password before storing it
+    if (password !== confirmPassword) {
+        throw new Error('Password and confirm password do not match');
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const [result] = await connection.query(
