@@ -7,12 +7,9 @@ const {
     deleteSchema,
     editUserSchema,
     resetSchema,
-    getresetSchema,
 } = require('../helpers/validation_schema');
 const {
     getUsers,
-    getUser,
-    getUpdatePassword,
     createUser,
     deleteUser,
     loginUser,
