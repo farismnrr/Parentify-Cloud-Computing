@@ -1,6 +1,5 @@
 const express = require('express');
 const createError = require('http-errors');
-// const User = require('../Models/User.model_mongodb');
 const {
     registrationSchema,
     loginSchema,
@@ -111,33 +110,6 @@ router.post('/login', async (req, res, next) => {
             Message: error.message || 'Internal Server Error',
         });
     }
-});
-
-router.post('/send-otp', async (req, res) => {
-    try {
-        let phoneNumber = req.body.phoneNumber;
-
-        const result = await sendOtpAsync(phoneNumber);
-        res.status(result.status === 'Success' ? 200 : 400).json(result);
-    } catch (error) {
-        if (error.isJoi === true) error.status = 422;
-        res.status(error.status || 500).json({
-            Status: 'Error',
-            Message: error.message || 'Internal Server Error',
-        });
-    }
-});
-
-router.post('/verify-otp', async (req, res) => {
-    const phoneNumber = req.body.phoneNumber;
-    const otpCode = req.body.otpCode;
-
-    const result = await verifyOtpAsync(phoneNumber, otpCode);
-
-    res.status(result.status).json({
-        status: result.status === 200 ? 'Success' : 'Error',
-        message: result.message,
-    });
 });
 
 router.put('/edit/user', async (req, res, next) => {
