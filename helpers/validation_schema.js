@@ -63,5 +63,4 @@ module.exports = {
     deleteSchema,
     editUserSchema,
     resetSchema,
-    getresetSchema,
 };
