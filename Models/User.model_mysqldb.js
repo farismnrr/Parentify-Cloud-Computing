@@ -26,21 +26,9 @@ async function insertToken(userId, refreshToken) {
     return { user: getUser(id), refreshToken };
 }
 
-async function createUser(username, email, phoneNumber, password) {
+async function createUser(username, email, password) {
     // Hash the password before storing it
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    if (!(phoneNumber.startsWith('+62') || phoneNumber.startsWith('0'))) {
-        throw {
-            status: 400,
-            message: 'Invalid phone number format. Must start with +62 or 0.',
-        };
-    }
-
-    // If phoneNumber starts with '0', replace the first character with '+62'
-    if (phoneNumber.startsWith('0')) {
-        phoneNumber = `+62${phoneNumber.substring(1)}`;
-    }
 
     const [result] = await connection.query(
         'INSERT INTO users (username, email, phoneNumber, password, createdAt) VALUES (?, ?, ?, ?, ?)',
@@ -256,12 +244,7 @@ async function updateUserData(
     };
 }
 
-async function updateUserPassword(
-    identifier,
-    newPassword,
-    confirmPassword,
-    phoneNumber,
-) {
+async function updateUserPassword(identifier, newPassword, confirmPassword) {
     const existingUsers = await getUsers();
 
     const user = existingUsers.find(
@@ -274,22 +257,6 @@ async function updateUserPassword(
 
     if (newPassword !== confirmPassword) {
         throw new Error('Password and confirm password do not match');
-    }
-
-    if (!(phoneNumber.startsWith('+62') || phoneNumber.startsWith('0'))) {
-        throw {
-            status: 400,
-            message: 'Invalid phone number format. Must start with +62 or 0.',
-        };
-    }
-
-    // If phoneNumber starts with '0', replace the first character with '+62'
-    if (phoneNumber.startsWith('0')) {
-        phoneNumber = `+62${phoneNumber.substring(1)}`;
-    }
-
-    if (user.phoneNumber !== phoneNumber) {
-        throw new Error("phone number doesn't exitst");
     }
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
