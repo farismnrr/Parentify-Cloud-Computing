@@ -297,7 +297,6 @@ async function updateUserPassword(
 module.exports = {
     getUsers,
     getUser,
-    getUpdatePassword,
     createUser,
     deleteUser,
     loginUser,
