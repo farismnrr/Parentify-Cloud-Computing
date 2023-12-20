@@ -250,7 +250,12 @@ async function updateUserData(
     };
 }
 
-async function updateUserPassword(identifier, newPassword, confirmPassword) {
+async function updateUserPassword(
+    identifier,
+    newPassword,
+    confirmPassword,
+    phoneNumber,
+) {
     const existingUsers = await getUsers();
 
     const user = existingUsers.find(
@@ -259,6 +264,10 @@ async function updateUserPassword(identifier, newPassword, confirmPassword) {
 
     if (!user) {
         throw createError.NotFound('Username or email not registered');
+    }
+
+    if (user.phoneNumber !== phoneNumber) {
+        throw new Error("phone number doesn't exitst");
     }
 
     if (newPassword !== confirmPassword) {
