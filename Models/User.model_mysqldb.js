@@ -32,40 +32,6 @@ async function insertToken(userId, refreshToken) {
     return { user: getUser(id), refreshToken };
 }
 
-async function getUpdatePassword(identifier, newPassword, confirmPassword) {
-    const existingUsers = await getUsers();
-
-    const user = existingUsers.find(
-        (user) => user.username === identifier || user.email === identifier,
-    );
-
-    if (!user) {
-        throw createError.NotFound('Username or email not registered');
-    }
-
-    if (newPassword !== confirmPassword) {
-        throw new Error('Password and confirm password do not match');
-    }
-
-    const userId = user.id;
-
-    const [newData] = await connection.query(
-        'SELECT * FROM users WHERE id = ?',
-        [userId],
-    );
-
-    return {
-        message: 'User get successfully',
-        data: {
-            id: newData[0].id,
-            username: newData[0].username,
-            email: newData[0].email,
-            createdAt: newData[0].createdAt,
-            updatedAt: newData[0].updatedAt,
-        },
-    };
-}
-
 async function createUser(username, email, phoneNumber, password) {
     // Hash the password before storing it
     const hashedPassword = await bcrypt.hash(password, 10);
