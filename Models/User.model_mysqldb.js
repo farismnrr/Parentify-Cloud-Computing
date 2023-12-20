@@ -3,12 +3,6 @@ const { signAccessToken, signRefreshToken } = require('../helpers/jwt_helper');
 const createError = require('http-errors');
 const bcrypt = require('bcrypt');
 
-const {
-    client,
-    countdowns,
-    startCountdown,
-} = require('../helpers/init_twilio');
-
 async function getUsers() {
     const [rows] = await connection.query('SELECT * FROM users');
     return rows;
@@ -300,94 +294,6 @@ async function updateUserPassword(
     };
 }
 
-async function sendOtpAsync(phoneNumber) {
-    // If phoneNumber does not start with '+62' or '0', throw an error
-    if (!(phoneNumber.startsWith('+62') || phoneNumber.startsWith('0'))) {
-        throw {
-            status: 400,
-            message: 'Invalid phone number format. Must start with +62 or 0.',
-        };
-    }
-
-    // If phoneNumber starts with '0', replace the first character with '+62'
-    if (phoneNumber.startsWith('0')) {
-        phoneNumber = `+62${phoneNumber.substring(1)}`;
-    }
-
-    if (phoneNumber.startsWith('6')) {
-        phoneNumber = `+${phoneNumber.substring(0)}`;
-    }
-
-    // Check if a countdown is active for this phone number
-    if (countdowns[phoneNumber]) {
-        return {
-            status: 'Error',
-            message: `countdowns: ${countdowns[phoneNumber]}`,
-        };
-    }
-
-    const verification = await client.verify
-        .services(process.env.TWILIO_VERIFY_SID)
-        .verifications.create({ to: phoneNumber, channel: 'sms' });
-
-    console.log(verification.status);
-    startCountdown(phoneNumber); // Start the countdown
-
-    // Fetch the OTP code separately
-    const otpCode = await client.verify
-        .services(process.env.TWILIO_VERIFY_SID)
-        .verifications(verification.sid)
-        .fetch();
-
-    // Modify the response format
-    return {
-        status: 'Success',
-        message: 'OTP sent successfully',
-        data: {
-            phoneNumber: phoneNumber,
-            countdown: countdowns[phoneNumber],
-        },
-    };
-}
-
-async function verifyOtpAsync(phoneNumber, otpCode) {
-    try {
-        // Validate the phoneNumber format (assuming it should start with '+62' for Indonesia)
-        if (!(phoneNumber.startsWith('+62') || phoneNumber.startsWith('0'))) {
-            throw {
-                status: 400,
-                message:
-                    'Invalid phone number format. Must start with +62 or 0.',
-            };
-        }
-
-        // If phoneNumber starts with '0', replace the first character with '+62'
-        if (phoneNumber.startsWith('0')) {
-            phoneNumber = `+62${phoneNumber.substring(1)}`;
-        }
-
-        if (phoneNumber.startsWith('6')) {
-            phoneNumber = `+${phoneNumber.substring(0)}`;
-        }
-
-        const verificationCheck = await client.verify
-            .services(process.env.TWILIO_VERIFY_SID)
-            .verificationChecks.create({ to: phoneNumber, code: otpCode });
-
-        console.log(verificationCheck.status);
-        return {
-            status: 200,
-            message: verificationCheck.status,
-        };
-    } catch (error) {
-        console.error(error);
-        return {
-            status: 500,
-            message: 'Error verifying OTP',
-        };
-    }
-}
-
 module.exports = {
     getUsers,
     getUser,
@@ -399,6 +305,4 @@ module.exports = {
     insertToken,
     updateUserData,
     updateUserPassword,
-    sendOtpAsync,
-    verifyOtpAsync,
 };
