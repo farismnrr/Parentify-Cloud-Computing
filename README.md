@@ -1,7 +1,9 @@
 # Cloud Diagram
+---
 ![Cloud Diagram](cloud-diagram.png)
 
 # How to Install
+### MySQL
 ---
 - **Update and Install MySQL**
 ```bash
