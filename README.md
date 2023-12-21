@@ -10,6 +10,8 @@ sudo apt-get full-upgrade -y
 ```
 ```bash
 sudo apt auto-remove
+```
+```bash
 sudo apt install mysql-server -y
 ```
 ```bash
