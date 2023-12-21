@@ -17,7 +17,7 @@ sudo mysql
 - **Create new user database**
 ```sql
 -- Create new user
-CREATE USER 'parentify'@'localhost' IDENTIFIED BY 'Parentify-CH2-PS318';
+CREATE USER 'parentify'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD';
 
 -- Grant necessary privileges to the user (adjust privileges as needed)
 GRANT SELECT, INSERT, UPDATE, DELETE ON your_database.* TO 'parentify'@'localhost';
@@ -79,20 +79,20 @@ git clone https://github.com/Parentify/Parentify-Cloud-Computing.git
 
 ### Create Automatic Update and Deploy
 ---
-- Move the bash into the main directory
+- Change the directory to the Parentify-Cloud-Computing by command `cd Parentify-Cloud-Computing`
 - See the directory by command `pwd` and save the directory
 - Move the bash file into main directory
 ```bash
 sudo mv update_and_deploy.sh ../update_and_deploy.sh
+```
+- Open crontab to create new log
+```bash
 crontab -e
 ```
-
-- Open crontab to create new log
 ```bash
 0 * * * * /bin/bash /home/YOUR_VM_DIRECTORY/update_and_deploy.sh
 ```
 - Save the crontab by pressing `ctrl + s` and `ctrl + x`
-  
 ```bash
 chmod +x update_and_deploy.sh
 ./update_and_deploy.sh
