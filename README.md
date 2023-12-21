@@ -1,3 +1,8 @@
+# Cloud Diagram
+```markdown
+![Cloud Diagram](cloud-diagram.png)
+```
+
 # How to Install
 ---
 - **Update and Install MySQL**
