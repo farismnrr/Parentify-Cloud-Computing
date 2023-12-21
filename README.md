@@ -96,6 +96,7 @@ crontab -e
 0 * * * * /bin/bash /home/YOUR_VM_DIRECTORY/update_and_deploy.sh
 ```
 - Save the crontab by pressing `ctrl + s` and `ctrl + x`
+- Deploy the bash file
 ```bash
 chmod +x update_and_deploy.sh
 ./update_and_deploy.sh
