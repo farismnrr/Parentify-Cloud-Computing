@@ -34,7 +34,7 @@ SELECT User, Host FROM mysql.user WHERE User = 'parentify';
 
 - **Grand the privilage for the user**
 ```sql
-GRANT ALL PRIVILEGES ON your_database.* TO 'parentify'@'localhost';
+GRANT ALL PRIVILEGES ON your_database.* TO 'YOUR_PASSWORD';
 FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'parentify'@'localhost';
 GRANT ALL PRIVILEGES ON *.* TO 'parentify'@'localhost' WITH GRANT OPTION;
