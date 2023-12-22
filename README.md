@@ -23,7 +23,7 @@ sudo mysql
 - **Create new user database**
 ```sql
 -- Create new user
-CREATE USER 'parentify'@'localhost' IDENTIFIED BY 'Parentify-CH2-PS318';
+CREATE USER 'parentify'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD';
 
 -- Grant necessary privileges to the user (adjust privileges as needed)
 GRANT SELECT, INSERT, UPDATE, DELETE ON your_database.* TO 'parentify'@'localhost';
@@ -34,7 +34,7 @@ SELECT User, Host FROM mysql.user WHERE User = 'parentify';
 
 - **Grand the privilage for the user**
 ```sql
-GRANT ALL PRIVILEGES ON your_database.* TO 'YOUR_PASSWORD';
+GRANT ALL PRIVILEGES ON your_database.* TO 'parentify'@'localhost';
 FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'parentify'@'localhost';
 GRANT ALL PRIVILEGES ON *.* TO 'parentify'@'localhost' WITH GRANT OPTION;
