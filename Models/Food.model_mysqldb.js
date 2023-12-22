@@ -3,34 +3,25 @@ const connection = require('../helpers/init_mysqldb');
 async function getFoods() {
     const [rows] = await connection.query(`
         SELECT
-            foods.img,
-            foods.name,
-            foods.type,
-            foods.description,
-            foods.nutrition,
-            CONCAT('[', GROUP_CONCAT('"', classification.information, '"'), ']') AS information,
-            CONCAT('[', GROUP_CONCAT('"', classification.status, '"'), ']') AS status,
-            CONCAT('[', GROUP_CONCAT('"', classification.texture, '"'), ']') AS texture
+            foods.img AS img,
+            foods.name AS name,
+            foods.type AS type,
+            foods.description AS description,
+            foods.nutrition AS nutrition,
+            CONCAT('[', GROUP_CONCAT('{"information":"', classification.information, '","status":"', classification.status, '","texture":"', classification.texture, '"}'), ']') AS data
         FROM
             foods
         INNER JOIN
             classification ON foods.name = classification.name
         GROUP BY
-            foods.img, foods.name, foods.type, foods.description, foods.nutrition
-        LIMIT 0, 25
+            foods.img, foods.name, foods.type, foods.description, foods.nutrition;
     `);
 
-    // Transform the rows into the desired JSON format
-    const formattedFoods = rows.map((row) => ({
-        img: row.img,
-        name: row.name,
-        type: row.type,
-        description: row.description,
-        nutrition: row.nutrition,
-        information: JSON.parse(row.information),
-        status: JSON.parse(row.status),
-        texture: JSON.parse(row.texture),
-    }));
+    // Parse the 'data' field from JSON string to an array of objects
+    const formattedFoods = rows.map((row) => {
+        row.data = JSON.parse(row.data);
+        return row;
+    });
 
     return formattedFoods;
 }
@@ -41,24 +32,21 @@ async function getClassification(foodName) {
         const [rows] = await connection.query(
             `
             SELECT
-            foods.img,
-            foods.name,
-            foods.type,
-            foods.description,
-            foods.nutrition,
-            CONCAT('[', GROUP_CONCAT('"', classification.information, '"'), ']') AS information,
-            CONCAT('[', GROUP_CONCAT('"', classification.status, '"'), ']') AS status,
-            CONCAT('[', GROUP_CONCAT('"', classification.texture, '"'), ']') AS texture
-        FROM
-            foods
-        INNER JOIN
-            classification ON foods.name = classification.name
-        WHERE
-            foods.name = ?
-        GROUP BY
-            foods.img, foods.name, foods.type, foods.description, foods.nutrition
-        LIMIT 0, 25;        
-        `,
+                foods.img AS img,
+                foods.name AS name,
+                foods.type AS type,
+                foods.description AS description,
+                foods.nutrition AS nutrition,
+                CONCAT('[', GROUP_CONCAT('{"information":"', classification.information, '","status":"', classification.status, '","texture":"', classification.texture, '"}'), ']') AS data
+            FROM
+                foods
+            INNER JOIN
+                classification ON foods.name = classification.name
+            WHERE
+                foods.name = ?
+            GROUP BY
+                foods.img, foods.name, foods.type, foods.description, foods.nutrition;
+            `,
             [foodName],
         );
 
@@ -66,7 +54,13 @@ async function getClassification(foodName) {
             throw { status: 404, message: 'Food not found' };
         }
 
-        return rows;
+        // Parse the 'data' field from JSON string to an array of objects
+        const parsedRows = rows.map((row) => {
+            row.data = JSON.parse(row.data);
+            return row;
+        });
+
+        return parsedRows;
     } catch (error) {
         throw error;
     }
